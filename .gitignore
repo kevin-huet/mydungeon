@@ -1,4 +1,6 @@
 # Cache and logs (Symfony2)
+
+
 /app/cache/*
 /app/logs/*
 !app/cache/.gitkeep
@@ -50,3 +52,8 @@
 
 # Embedded web-server pid file
 /.web-server-pid
+
+/.env
+/.env.test
+/.idea
+/migrations/*

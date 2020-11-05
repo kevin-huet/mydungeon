@@ -1,0 +1,74 @@
+[29-Oct-2020 16:02:05 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[29-Oct-2020 16:09:38 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[04-Nov-2020 17:30:35 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[04-Nov-2020 17:31:09 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[04-Nov-2020 21:55:10 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[04-Nov-2020 21:55:11 Asia/Riyadh] 2020-11-04T21:55:11+03:00 [critical] Uncaught Error: syntax error, unexpected ')'
+[04-Nov-2020 21:55:47 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[04-Nov-2020 21:56:58 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[04-Nov-2020 21:57:38 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[04-Nov-2020 21:57:58 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[04-Nov-2020 21:58:19 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[04-Nov-2020 21:59:45 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[04-Nov-2020 21:59:48 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[04-Nov-2020 22:00:02 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[04-Nov-2020 22:34:20 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[04-Nov-2020 22:34:51 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[04-Nov-2020 22:35:02 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[04-Nov-2020 22:35:21 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[04-Nov-2020 22:35:45 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[04-Nov-2020 22:35:49 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[04-Nov-2020 22:35:50 Asia/Riyadh] 2020-11-04T22:35:50+03:00 [info] User Deprecated: Not passing a connection provider as the first constructor argument is deprecated
+[04-Nov-2020 22:35:53 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[04-Nov-2020 22:39:44 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[04-Nov-2020 22:39:44 Asia/Riyadh] 2020-11-04T22:39:44+03:00 [info] User Deprecated: Not passing a connection provider as the first constructor argument is deprecated
+[04-Nov-2020 22:39:51 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[04-Nov-2020 22:40:40 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[04-Nov-2020 22:42:40 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[04-Nov-2020 22:42:40 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[04-Nov-2020 22:42:57 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[04-Nov-2020 22:43:01 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[05-Nov-2020 00:14:05 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[05-Nov-2020 00:14:13 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[05-Nov-2020 00:26:27 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[05-Nov-2020 00:26:27 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[05-Nov-2020 00:26:39 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[05-Nov-2020 00:26:40 Asia/Riyadh] PHP Fatal error:  Cannot use Symfony\Component\Mime\TemplatedEmail as TemplatedEmail because the name is already in use in /var/www/msmv/src/Command/SendMailCommand.php on line 9
+[05-Nov-2020 00:26:40 Asia/Riyadh] PHP Stack trace:
+[05-Nov-2020 00:26:40 Asia/Riyadh] PHP   1. {main}() /var/www/msmv/bin/console:0
+[05-Nov-2020 00:26:40 Asia/Riyadh] PHP   2. Symfony\Bundle\FrameworkBundle\Console\Application->run() /var/www/msmv/bin/console:43
+[05-Nov-2020 00:26:40 Asia/Riyadh] PHP   3. Symfony\Bundle\FrameworkBundle\Console\Application->doRun() /var/www/msmv/vendor/symfony/console/Application.php:142
+[05-Nov-2020 00:26:40 Asia/Riyadh] PHP   4. Symfony\Bundle\FrameworkBundle\Console\Application->registerCommands() /var/www/msmv/vendor/symfony/framework-bundle/Console/Application.php:74
+[05-Nov-2020 00:26:40 Asia/Riyadh] PHP   5. App\Kernel->boot() /var/www/msmv/vendor/symfony/framework-bundle/Console/Application.php:168
+[05-Nov-2020 00:26:40 Asia/Riyadh] PHP   6. App\Kernel->initializeContainer() /var/www/msmv/vendor/symfony/http-kernel/Kernel.php:131
+[05-Nov-2020 00:26:40 Asia/Riyadh] PHP   7. App\Kernel->buildContainer() /var/www/msmv/vendor/symfony/http-kernel/Kernel.php:532
+[05-Nov-2020 00:26:40 Asia/Riyadh] PHP   8. App\Kernel->registerContainerConfiguration() /var/www/msmv/vendor/symfony/http-kernel/Kernel.php:634
+[05-Nov-2020 00:26:40 Asia/Riyadh] PHP   9. Symfony\Component\Config\Loader\DelegatingLoader->load() /var/www/msmv/vendor/symfony/framework-bundle/Kernel/MicroKernelTrait.php:143
+[05-Nov-2020 00:26:40 Asia/Riyadh] PHP  10. Symfony\Component\DependencyInjection\Loader\ClosureLoader->load() /var/www/msmv/vendor/symfony/config/Loader/DelegatingLoader.php:40
+[05-Nov-2020 00:26:40 Asia/Riyadh] PHP  11. App\Kernel->Symfony\Bundle\FrameworkBundle\Kernel\{closure:/var/www/msmv/vendor/symfony/framework-bundle/Kernel/MicroKernelTrait.php:84-143}() /var/www/msmv/vendor/symfony/dependency-injection/Loader/ClosureLoader.php:38
+[05-Nov-2020 00:26:40 Asia/Riyadh] PHP  12. App\Kernel->configureContainer() /var/www/msmv/vendor/symfony/framework-bundle/Kernel/MicroKernelTrait.php:135
+[05-Nov-2020 00:26:40 Asia/Riyadh] PHP  13. Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator->import() /var/www/msmv/src/Kernel.php:20
+[05-Nov-2020 00:26:40 Asia/Riyadh] PHP  14. Symfony\Component\DependencyInjection\Loader\PhpFileLoader->import() /var/www/msmv/vendor/symfony/dependency-injection/Loader/Configurator/ContainerConfigurator.php:60
+[05-Nov-2020 00:26:40 Asia/Riyadh] PHP  15. Symfony\Component\DependencyInjection\Loader\PhpFileLoader->import() /var/www/msmv/vendor/symfony/dependency-injection/Loader/FileLoader.php:64
+[05-Nov-2020 00:26:40 Asia/Riyadh] PHP  16. Symfony\Component\DependencyInjection\Loader\PhpFileLoader->doImport() /var/www/msmv/vendor/symfony/config/Loader/FileLoader.php:97
+[05-Nov-2020 00:26:40 Asia/Riyadh] PHP  17. Symfony\Component\DependencyInjection\Loader\YamlFileLoader->load() /var/www/msmv/vendor/symfony/config/Loader/FileLoader.php:158
+[05-Nov-2020 00:26:40 Asia/Riyadh] PHP  18. Symfony\Component\DependencyInjection\Loader\YamlFileLoader->parseDefinitions() /var/www/msmv/vendor/symfony/dependency-injection/Loader/YamlFileLoader.php:154
+[05-Nov-2020 00:26:40 Asia/Riyadh] PHP  19. Symfony\Component\DependencyInjection\Loader\YamlFileLoader->parseDefinition() /var/www/msmv/vendor/symfony/dependency-injection/Loader/YamlFileLoader.php:234
+[05-Nov-2020 00:26:40 Asia/Riyadh] PHP  20. Symfony\Component\DependencyInjection\Loader\YamlFileLoader->registerClasses() /var/www/msmv/vendor/symfony/dependency-injection/Loader/YamlFileLoader.php:671
+[05-Nov-2020 00:26:40 Asia/Riyadh] PHP  21. Symfony\Component\DependencyInjection\Loader\YamlFileLoader->findClasses() /var/www/msmv/vendor/symfony/dependency-injection/Loader/FileLoader.php:99
+[05-Nov-2020 00:26:40 Asia/Riyadh] PHP  22. Symfony\Component\DependencyInjection\ContainerBuilder->getReflectionClass() /var/www/msmv/vendor/symfony/dependency-injection/Loader/FileLoader.php:199
+[05-Nov-2020 00:26:40 Asia/Riyadh] PHP  23. Symfony\Component\Config\Resource\ClassExistenceResource->isFresh() /var/www/msmv/vendor/symfony/dependency-injection/ContainerBuilder.php:348
+[05-Nov-2020 00:26:40 Asia/Riyadh] PHP  24. class_exists() /var/www/msmv/vendor/symfony/config/Resource/ClassExistenceResource.php:84
+[05-Nov-2020 00:26:40 Asia/Riyadh] PHP  25. spl_autoload_call() /var/www/msmv/vendor/symfony/config/Resource/ClassExistenceResource.php:84
+[05-Nov-2020 00:26:40 Asia/Riyadh] PHP  26. Symfony\Component\ErrorHandler\DebugClassLoader->loadClass() /var/www/msmv/vendor/symfony/config/Resource/ClassExistenceResource.php:84
+[05-Nov-2020 00:26:54 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[05-Nov-2020 00:26:54 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[05-Nov-2020 00:27:02 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[05-Nov-2020 00:27:06 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[05-Nov-2020 00:29:32 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[05-Nov-2020 00:29:32 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[05-Nov-2020 00:29:41 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[05-Nov-2020 00:29:44 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[05-Nov-2020 02:04:20 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[05-Nov-2020 02:04:34 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[05-Nov-2020 12:45:26 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
