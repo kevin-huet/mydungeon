@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity()
  */
-class Character
+class WarcraftCharacter
 {
     /**
      * @ORM\Id
