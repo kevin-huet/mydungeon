@@ -24,12 +24,6 @@ class HomeController extends AbstractController
      */
     public function home()
     {
-<<<<<<< HEAD
-        $test = $this->blizzApi->sendRequest();
-        $verify = $this->blizzApi->verifyToken($test);
-        return $this->render('index.html.twig', ['test' => $test, 'verif' => ($verify) ? 1 : 0]);
-=======
         return $this->render('index.html.twig', []);
->>>>>>> release/0.1.0
     }
 }

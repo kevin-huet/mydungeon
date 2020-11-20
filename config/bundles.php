@@ -13,10 +13,7 @@ return [
     Symfony\Bundle\DebugBundle\DebugBundle::class => ['dev' => true, 'test' => true],
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
     SymfonyCasts\Bundle\VerifyEmail\SymfonyCastsVerifyEmailBundle::class => ['all' => true],
-<<<<<<< HEAD
-=======
     Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle::class => ['all' => true],
     Gos\Bundle\PubSubRouterBundle\GosPubSubRouterBundle::class => ['all' => true],
     Gos\Bundle\WebSocketBundle\GosWebSocketBundle::class => ['all' => true],
->>>>>>> release/0.1.0
 ];

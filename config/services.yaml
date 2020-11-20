@@ -6,10 +6,7 @@
 parameters:
     api.key: 'd51577f11551459c898710354b0a0ecd'
     api.secret: 'KQLcSCQeESolbb1ouyRAN9sCtTQqOGLG'
-<<<<<<< HEAD
-=======
     email: 'ventuss.ascii.bot@gmail.com'
->>>>>>> release/0.1.0
 
 services:
     # default configuration for services in *this* file
