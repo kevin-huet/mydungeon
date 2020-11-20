@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <div class="container row margin">
+        <div class="col s12 grey darken-4 z-depth-2">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Realm</th>
+                    <th>Score</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+            {% for character in characters %}
+                <tr>
+                    <td><img class="responsive-img" alt="" src="{{ character.thumbnail_url }}"/></td>
+                    <td>{{ character.name }}</td>
+                    <td>{{ character.realm }}</td>
+                    <td>{{ character.mythic_plus_scores.all }}</td>
+                    <td >
+                        <a class="btn-small" href="{{ path('app_character', {'realm': character.realm, 'username': character.name}) }}">Show Profile</a>
+                    </td>
+                </tr>
+            {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

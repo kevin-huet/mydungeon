@@ -46,6 +46,11 @@ class User implements UserInterface
      */
     private $isVerified = false;
 
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $verifyToken;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -124,7 +129,7 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
-    public function getBlizzardUser(): ?BlizzardUser
+    public function getBlizzardUser()
     {
         return $this->BlizzardUser;
     }
@@ -146,5 +151,21 @@ class User implements UserInterface
         $this->isVerified = $isVerified;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVerifyToken()
+    {
+        return $this->verifyToken;
+    }
+
+    /**
+     * @param mixed $verifyToken
+     */
+    public function setVerifyToken($verifyToken): void
+    {
+        $this->verifyToken = $verifyToken;
     }
 }

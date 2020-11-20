@@ -6,7 +6,8 @@ namespace App\Controller\Account;
 
 use App\Entity\BlizzardUser;
 use App\Entity\User;
-use App\Entity\WoW\Character;
+use App\Entity\WoW\WarcraftCharacter;
+use App\Repository\CharacterRepository;
 use App\Service\Api\BlizzardApiService;
 use App\Service\Api\WarcraftApiService;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -44,14 +45,19 @@ class SyncAccountController extends AbstractController
      * @var WarcraftApiService
      */
     private $warcraftApi;
+    /**
+     * @var CharacterRepository
+     */
+    private $characterRepo;
 
     public function __construct(EntityManagerInterface $entityManager, WarcraftApiService $warcraftApiService,
-                                BlizzardApiService $blizzardApiService, ParameterBagInterface $bag)
+                                BlizzardApiService $blizzardApiService, ParameterBagInterface $bag, CharacterRepository $characterRepo)
     {
         $this->blizzardApi = $blizzardApiService;
         $this->warcraftApi = $warcraftApiService;
         $this->bag = $bag;
         $this->em = $entityManager;
+        $this->characterRepo = $characterRepo;
     }
 
     /**
@@ -60,14 +66,16 @@ class SyncAccountController extends AbstractController
      */
     public function syncAccount()
     {
-        $valid = false;
-        if ($this->getUser() && $this->getUser()->getTokenApi()) {
-            if (!$this->blizzardApi->verifyToken($this->getUser()->getTokenApi())) {
-                $valid = true;
+        /** @var User $user */
+        $user = $this->getUser();
+        $valid = 0;
+        if ($user && $user->getBlizzardUser() && $user->getBlizzardUser()->getToken()) {
+            if ($this->blizzardApi->verifyToken($user->getBlizzardUser()->getToken())) {
+                $valid = 1;
             }
         }
         return $this->redirect("https://eu.battle.net/oauth/authorize?client_id=" . $this->bag->get('api.key') . "&redirect_uri=" .
-            "http://localhost" . $this->generateUrl('app_sync_callback', array("token" => ($valid) ? 1 : 0)) . "&response_type=code&scope=wow.profile");
+            "http://localhost" . $this->generateUrl('app_sync_callback', array("token" => $valid)). "&response_type=code&scope=wow.profile");
     }
 
     /**
@@ -78,43 +86,68 @@ class SyncAccountController extends AbstractController
      */
     public function syncAccountCallback(Request $request, $token)
     {
-        if (!$token) {
-            $uri = "http://localhost" . $this->generateUrl('callback_api',
+        /** @var User $user */
+        $user = $this->getUser();
+        if ($user && !$token) {
+            $uri = "http://localhost" . $this->generateUrl('app_sync_callback',
                     ["token" => $token]);
             $code = serialize($request->query->get('code'));
             $code = unserialize($code);
-            $response = $this->blizzardApi->userAuthorization($code, $uri);
+            $response = $this->blizzardApi->userAuthorization($uri, $code);
             $response = explode(",", $response);
             $response = explode(":", $response[0]);
             $response = $response[1];
             $response = str_replace('"', '', $response);
-            echo $response;
-            return;
+
+            if (!$user->getBlizzardUser()) {
+                $blizzardUser = new BlizzardUser();
+                $user->setBlizzardUser($blizzardUser);
+                $blizzardUser->setUser($user);
+                $this->em->persist($blizzardUser);
+            }
+            /** @var BlizzardUser $blizzardUser */
+            $blizzardUser = $user->getBlizzardUser();
+            $blizzardUser->setToken($response);
+            $this->em->persist($user);
+            $this->em->persist($blizzardUser);
+            $this->em->flush();
+
         }
+        $this->saveCharacters($user->getBlizzardUser());
         return $this->redirectToRoute('app_home');
     }
 
-    public function saveUserInformation($userData)
-    {
 
-    }
+
 
     public function saveCharacters(BlizzardUser $user)
     {
         if ($user) {
             $result = $this->warcraftApi->getCharacters($user->getToken());
-            //foreach ($result['wow_accounts'][0]['characters'] as $character) {
-                //if ($character['level'] == 120 && $this->checkIfCharacterExist($character, $user->getCharacters())) {
-
-               // }
+            echo $result;
+            $result = json_decode($result, true);
+            foreach ($result['wow_accounts'][0]['characters'] as $character) {
+                if ($character['level'] == 50 && !$this->checkIfCharacterExist($user, $character)) {
+                    $newCharacter = new WarcraftCharacter();
+                    $newCharacter->setName($character['name']);
+                    $newCharacter->setPlayableClass($character['playable_class']['id']);
+                    $newCharacter->setRealm($character['realm']['slug']);
+                    $newCharacter->setBlizzardUser($user);
+                    $user->addCharacter($newCharacter);
+                    $this->em->persist($newCharacter);
+                }
             }
-
+            $this->em->persist($user);
+            $this->em->flush();
+        }
     }
 
-    public function checkIfCharacterExist($character, ArrayCollection $characters = null)
+    public function checkIfCharacterExist(BlizzardUser $blizzardUser, $characterResult)
     {
-        if (!$characters)
-            return false;
-        return true;
+        foreach ($blizzardUser->getCharacters() as $character) {
+            if ($characterResult['name'] == $character->getName() && $characterResult['realm']['slug'] == $character->getRealm())
+                return true;
+        }
+        return false;
     }
 }

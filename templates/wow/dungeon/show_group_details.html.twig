@@ -1,0 +1,7 @@
+{% for member in members %}
+    <img class="responsive-img" alt="" src="{{ member.thumbnail_url }}"/>
+    {{ member.name }}
+    {{ member.mythic_plus_scores.all }} - role {{ group.members[loop.index - 1].role }}
+    <br>
+{% endfor %}
+<a class="btn" href="{{ path('app_dungeon_group_delete', {'group': group.id}) }}">Delete</a>

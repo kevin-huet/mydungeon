@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container row margin grey darken-4 border">
+        {{ form_start(form) }}
+        <div class="input-field">
+            {{ form_row(form.name) }}
+            {{ form_row(form.role) }}
+            {{ form_row(form.character) }}
+        </div>
+        <button class="btn">Submit</button>
+        {{ form_end(form) }}
+
+    </div>
+{% endblock %}

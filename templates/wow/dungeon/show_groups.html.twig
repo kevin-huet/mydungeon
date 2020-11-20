@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container margin border grey darken-4 row z-depth-2 full-size">
+        {% for group in groups %}
+            <div class="col s6 m6 l6">
+                <div class="card grey darken-4">
+                    <div class="card-content white-text">
+                        <span class="card-title">{{ group.title }}</span>
+                        <p>creator : {{ group.creator.user.username }}</p>
+                        <p>{{ group.members|length }} / 5 membres</p>
+                        <p>{{ group.tank }} / 1 TANK</p>
+                        <p>{{ group.heal }} / 1 HEAL</p>
+                        <p>{{ group.dps }} / 3 DPS</p>
+                    </div>
+                    <div class="card-action center">
+                        {% if group.id in alreadySend %}
+                            <a class="btn">Cancel</a>
+                        {% else %}
+                            <a class="btn send-group-request" href="{{ path('app_dungeon_send_group_request', {'group': group.id}) }}">Postuler</a>
+                        {% endif %}
+                        <a class="btn show-group" style="" href="{{ path("app_dungeon_group_show", {'group': group.id}) }}">Voir le groupe</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

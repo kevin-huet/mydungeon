@@ -20,7 +20,7 @@ use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticato
 use Symfony\Component\Security\Guard\PasswordAuthenticatedInterface;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
-class SecurityAthenticatorAuthenticator extends AbstractFormLoginAuthenticator implements PasswordAuthenticatedInterface
+class SecurityAuthenticator extends AbstractFormLoginAuthenticator implements PasswordAuthenticatedInterface
 {
     use TargetPathTrait;
 
@@ -73,7 +73,8 @@ class SecurityAthenticatorAuthenticator extends AbstractFormLoginAuthenticator i
             // fail authentication with a custom error
             throw new CustomUserMessageAuthenticationException('Email could not be found.');
         }
-
+        if (!$user->isVerified())
+            throw new CustomUserMessageAuthenticationException('Not activated.');
         return $user;
     }
 
@@ -84,6 +85,8 @@ class SecurityAthenticatorAuthenticator extends AbstractFormLoginAuthenticator i
 
     /**
      * Used to upgrade (rehash) the user's password automatically over time.
+     * @param $credentials
+     * @return string|null
      */
     public function getPassword($credentials): ?string
     {
@@ -97,7 +100,7 @@ class SecurityAthenticatorAuthenticator extends AbstractFormLoginAuthenticator i
         }
 
         // For example : return new RedirectResponse($this->urlGenerator->generate('some_route'));
-        throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
+        return new RedirectResponse($this->urlGenerator->generate('app_home'));
     }
 
     protected function getLoginUrl()

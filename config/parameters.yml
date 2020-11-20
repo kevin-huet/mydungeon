@@ -1,4 +1,4 @@
 parameters:
   locale: 'fr'
   api_key: 'd51577f11551459c898710354b0a0ecd'
-  api_ecret: 'KQLcSCQeESolbb1ouyRAN9sCtTQqOGLG'
+  api_secret: 'KQLcSCQeESolbb1ouyRAN9sCtTQqOGLG'
