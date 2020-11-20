@@ -72,6 +72,8 @@
 [05-Nov-2020 02:04:20 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
 [05-Nov-2020 02:04:34 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
 [05-Nov-2020 12:45:26 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+<<<<<<< HEAD
+=======
 [05-Nov-2020 12:57:24 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
 [05-Nov-2020 12:57:24 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
 [05-Nov-2020 12:57:26 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
@@ -196,3 +198,4 @@
 [20-Nov-2020 04:07:15 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
 [20-Nov-2020 04:07:40 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
 [20-Nov-2020 04:07:44 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+>>>>>>> release/0.1.0

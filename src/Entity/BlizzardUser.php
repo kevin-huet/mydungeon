@@ -3,9 +3,13 @@
 
 namespace App\Entity;
 
+<<<<<<< HEAD
+use App\Entity\WoW\Character;
+=======
 use App\Entity\WoW\DungeonGroup;
 use App\Entity\WoW\DungeonGroupRequest;
 use App\Entity\WoW\WarcraftCharacter;
+>>>>>>> release/0.1.0
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -33,6 +37,15 @@ class BlizzardUser
     private $user;
 
     /**
+<<<<<<< HEAD
+     * @ORM\OneToMany(targetEntity=Character::class, mappedBy="blizzardUser")
+     */
+    private $characters;
+
+    public function __construct()
+    {
+        $this->characters = new ArrayCollection();
+=======
      * @ORM\OneToMany(targetEntity=WarcraftCharacter::class, mappedBy="blizzardUser")
      */
     private $characters;
@@ -52,6 +65,7 @@ class BlizzardUser
         $this->characters = new ArrayCollection();
         $this->dungeonGroup = new ArrayCollection();
         $this->dungeonGroupRequests = new ArrayCollection();
+>>>>>>> release/0.1.0
     }
 
     /**
@@ -105,14 +119,22 @@ class BlizzardUser
     }
 
     /**
+<<<<<<< HEAD
+     * @return Collection|Character[]
+=======
      * @return Collection|WarcraftCharacter[]
+>>>>>>> release/0.1.0
      */
     public function getCharacters(): Collection
     {
         return $this->characters;
     }
 
+<<<<<<< HEAD
+    public function addCharacter(Character $character): self
+=======
     public function addCharacter(WarcraftCharacter $character): self
+>>>>>>> release/0.1.0
     {
         if (!$this->characters->contains($character)) {
             $this->characters[] = $character;
@@ -122,7 +144,11 @@ class BlizzardUser
         return $this;
     }
 
+<<<<<<< HEAD
+    public function removeCharacter(Character $character): self
+=======
     public function removeCharacter(WarcraftCharacter $character): self
+>>>>>>> release/0.1.0
     {
         if ($this->characters->removeElement($character)) {
             // set the owning side to null (unless already changed)
@@ -134,6 +160,8 @@ class BlizzardUser
         return $this;
     }
 
+<<<<<<< HEAD
+=======
     /**
      * @return Collection|DungeonGroup[]
      */
@@ -194,5 +222,6 @@ class BlizzardUser
         return $this;
     }
 
+>>>>>>> release/0.1.0
 
 }

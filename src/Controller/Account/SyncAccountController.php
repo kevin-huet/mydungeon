@@ -6,8 +6,12 @@ namespace App\Controller\Account;
 
 use App\Entity\BlizzardUser;
 use App\Entity\User;
+<<<<<<< HEAD
+use App\Entity\WoW\Character;
+=======
 use App\Entity\WoW\WarcraftCharacter;
 use App\Repository\CharacterRepository;
+>>>>>>> release/0.1.0
 use App\Service\Api\BlizzardApiService;
 use App\Service\Api\WarcraftApiService;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -45,6 +49,11 @@ class SyncAccountController extends AbstractController
      * @var WarcraftApiService
      */
     private $warcraftApi;
+<<<<<<< HEAD
+
+    public function __construct(EntityManagerInterface $entityManager, WarcraftApiService $warcraftApiService,
+                                BlizzardApiService $blizzardApiService, ParameterBagInterface $bag)
+=======
     /**
      * @var CharacterRepository
      */
@@ -52,12 +61,16 @@ class SyncAccountController extends AbstractController
 
     public function __construct(EntityManagerInterface $entityManager, WarcraftApiService $warcraftApiService,
                                 BlizzardApiService $blizzardApiService, ParameterBagInterface $bag, CharacterRepository $characterRepo)
+>>>>>>> release/0.1.0
     {
         $this->blizzardApi = $blizzardApiService;
         $this->warcraftApi = $warcraftApiService;
         $this->bag = $bag;
         $this->em = $entityManager;
+<<<<<<< HEAD
+=======
         $this->characterRepo = $characterRepo;
+>>>>>>> release/0.1.0
     }
 
     /**
@@ -66,6 +79,16 @@ class SyncAccountController extends AbstractController
      */
     public function syncAccount()
     {
+<<<<<<< HEAD
+        $valid = false;
+        if ($this->getUser() && $this->getUser()->getTokenApi()) {
+            if (!$this->blizzardApi->verifyToken($this->getUser()->getTokenApi())) {
+                $valid = true;
+            }
+        }
+        return $this->redirect("https://eu.battle.net/oauth/authorize?client_id=" . $this->bag->get('api.key') . "&redirect_uri=" .
+            "http://localhost" . $this->generateUrl('app_sync_callback', array("token" => ($valid) ? 1 : 0)) . "&response_type=code&scope=wow.profile");
+=======
         /** @var User $user */
         $user = $this->getUser();
         $valid = 0;
@@ -76,6 +99,7 @@ class SyncAccountController extends AbstractController
         }
         return $this->redirect("https://eu.battle.net/oauth/authorize?client_id=" . $this->bag->get('api.key') . "&redirect_uri=" .
             "http://localhost" . $this->generateUrl('app_sync_callback', array("token" => $valid)). "&response_type=code&scope=wow.profile");
+>>>>>>> release/0.1.0
     }
 
     /**
@@ -86,6 +110,14 @@ class SyncAccountController extends AbstractController
      */
     public function syncAccountCallback(Request $request, $token)
     {
+<<<<<<< HEAD
+        if (!$token) {
+            $uri = "http://localhost" . $this->generateUrl('callback_api',
+                    ["token" => $token]);
+            $code = serialize($request->query->get('code'));
+            $code = unserialize($code);
+            $response = $this->blizzardApi->userAuthorization($code, $uri);
+=======
         /** @var User $user */
         $user = $this->getUser();
         if ($user && !$token) {
@@ -94,10 +126,23 @@ class SyncAccountController extends AbstractController
             $code = serialize($request->query->get('code'));
             $code = unserialize($code);
             $response = $this->blizzardApi->userAuthorization($uri, $code);
+>>>>>>> release/0.1.0
             $response = explode(",", $response);
             $response = explode(":", $response[0]);
             $response = $response[1];
             $response = str_replace('"', '', $response);
+<<<<<<< HEAD
+            echo $response;
+            return;
+        }
+        return $this->redirectToRoute('app_home');
+    }
+
+    public function saveUserInformation($userData)
+    {
+
+    }
+=======
 
             if (!$user->getBlizzardUser()) {
                 $blizzardUser = new BlizzardUser();
@@ -119,11 +164,27 @@ class SyncAccountController extends AbstractController
 
 
 
+>>>>>>> release/0.1.0
 
     public function saveCharacters(BlizzardUser $user)
     {
         if ($user) {
             $result = $this->warcraftApi->getCharacters($user->getToken());
+<<<<<<< HEAD
+            //foreach ($result['wow_accounts'][0]['characters'] as $character) {
+                //if ($character['level'] == 120 && $this->checkIfCharacterExist($character, $user->getCharacters())) {
+
+               // }
+            }
+
+    }
+
+    public function checkIfCharacterExist($character, ArrayCollection $characters = null)
+    {
+        if (!$characters)
+            return false;
+        return true;
+=======
             echo $result;
             $result = json_decode($result, true);
             foreach ($result['wow_accounts'][0]['characters'] as $character) {
@@ -149,5 +210,6 @@ class SyncAccountController extends AbstractController
                 return true;
         }
         return false;
+>>>>>>> release/0.1.0
     }
 }

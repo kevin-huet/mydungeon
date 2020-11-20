@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
+    "content-hash": "9bf583fe4f5cea7e337d993dec537fc3",
+=======
     "content-hash": "debdc74793b0775fe1d832a2659fb13d",
+>>>>>>> release/0.1.0
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -2215,6 +2219,8 @@
             "time": "2020-08-25T19:10:18+00:00"
         },
         {
+<<<<<<< HEAD
+=======
             "name": "swiftmailer/swiftmailer",
             "version": "v6.2.3",
             "source": {
@@ -2277,6 +2283,7 @@
             "time": "2019-11-12T09:31:26+00:00"
         },
         {
+>>>>>>> release/0.1.0
             "name": "symfony/asset",
             "version": "v5.1.8",
             "source": {
@@ -6174,6 +6181,8 @@
             "time": "2020-10-24T12:01:57+00:00"
         },
         {
+<<<<<<< HEAD
+=======
             "name": "symfony/swiftmailer-bundle",
             "version": "v3.5.1",
             "source": {
@@ -6250,6 +6259,7 @@
             "time": "2020-10-06T05:51:35+00:00"
         },
         {
+>>>>>>> release/0.1.0
             "name": "symfony/translation",
             "version": "v5.1.8",
             "source": {
@@ -7315,6 +7325,41 @@
     ],
     "packages-dev": [
         {
+<<<<<<< HEAD
+            "name": "nikic/php-parser",
+            "version": "v4.10.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nikic/PHP-Parser.git",
+                "reference": "658f1be311a230e0907f5dfe0213742aff0596de"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/658f1be311a230e0907f5dfe0213742aff0596de",
+                "reference": "658f1be311a230e0907f5dfe0213742aff0596de",
+                "shasum": ""
+            },
+            "require": {
+                "ext-tokenizer": "*",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "ircmaxell/php-yacc": "^0.0.7",
+                "phpunit/phpunit": "^6.5 || ^7.0 || ^8.0 || ^9.0"
+            },
+            "bin": [
+                "bin/php-parse"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.9-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PhpParser\\": "lib/PhpParser"
+=======
             "name": "cboden/ratchet",
             "version": "v0.4.3",
             "source": {
@@ -7451,10 +7496,26 @@
             "autoload": {
                 "psr-4": {
                     "Gos\\Bundle\\PubSubRouterBundle\\": "src/"
+>>>>>>> release/0.1.0
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
+<<<<<<< HEAD
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nikita Popov"
+                }
+            ],
+            "description": "A PHP parser written in PHP",
+            "keywords": [
+                "parser",
+                "php"
+            ],
+            "time": "2020-09-26T10:30:38+00:00"
+=======
                 "MIT"
             ],
             "authors": [
@@ -8323,6 +8384,7 @@
                 "writable"
             ],
             "time": "2020-05-04T10:17:57+00:00"
+>>>>>>> release/0.1.0
         },
         {
             "name": "symfony/browser-kit",

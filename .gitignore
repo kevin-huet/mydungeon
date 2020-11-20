@@ -57,5 +57,8 @@
 /.env.test
 /.idea
 /migrations/*
+<<<<<<< HEAD
+=======
 
 /config/
+>>>>>>> release/0.1.0
