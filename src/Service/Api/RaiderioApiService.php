@@ -26,7 +26,11 @@ class RaiderioApiService
 
     public function getCharacter(string $username, string $realm, string $region)
     {
+<<<<<<< HEAD
         $url = self::URL."characters/profile?region={region}&realm={realm}&name={name}";
+=======
+        $url = self::URL."characters/profile?region={region}&realm={realm}&name={name}&fields=mythic_plus_scores";
+>>>>>>> release/0.1.0
         $url = str_replace(['{region}', '{realm}', '{name}'], [$region, $realm, $username], $url);
 
         try {

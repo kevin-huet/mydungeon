@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+<<<<<<< HEAD
 use App\Form\RegistrationFormType;
 use App\Security\EmailVerifier;
 use App\Security\SecurityAthenticatorAuthenticator;
@@ -23,17 +24,45 @@ class RegistrationController extends AbstractController
     public function __construct(EmailVerifier $emailVerifier)
     {
         $this->emailVerifier = $emailVerifier;
+=======
+use App\Form\DungeonGroupRequestType;
+use App\Form\RegistrationFormType;
+use App\Service\Mail\EmailVerifyService;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
+class RegistrationController extends AbstractController
+{
+    /**
+     * @var EmailVerifyService
+     */
+    private $emailVerifyService;
+
+    public function __construct(EmailVerifyService $emailVerifyService)
+    {
+        $this->emailVerifyService = $emailVerifyService;
+>>>>>>> release/0.1.0
     }
 
     /**
      * @Route("/register", name="app_register")
      * @param Request $request
      * @param UserPasswordEncoderInterface $passwordEncoder
+<<<<<<< HEAD
      * @param GuardAuthenticatorHandler $guardHandler
      * @param SecurityAthenticatorAuthenticator $authenticator
      * @return Response
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, SecurityAthenticatorAuthenticator $authenticator): Response
+=======
+     * @return Response
+     */
+    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
+>>>>>>> release/0.1.0
     {
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
@@ -47,6 +76,7 @@ class RegistrationController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
+<<<<<<< HEAD
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
@@ -68,6 +98,17 @@ class RegistrationController extends AbstractController
                 $authenticator,
                 'main' // firewall name in security.yaml
             );
+=======
+            $user->setVerifyToken(md5(uniqid($user->getEmail(), true)));
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+            $render = $this->renderView(
+                'mail/mail_confirmation.html.twig',
+                ['userId' => $user->getId(), 'token' => $user->getVerifyToken()]);
+            $this->emailVerifyService->sendMailVerification($render, $user->getEmail());
+            return $this->redirectToRoute('app_home');
+>>>>>>> release/0.1.0
         }
 
         return $this->render('registration/register.html.twig', [
@@ -76,6 +117,7 @@ class RegistrationController extends AbstractController
     }
 
     /**
+<<<<<<< HEAD
      * @Route("/verify/email", name="app_verify_email")
      * @param Request $request
      * @return Response
@@ -96,6 +138,21 @@ class RegistrationController extends AbstractController
         // @TODO Change the redirect on success and handle or remove the flash message in your templates
         $this->addFlash('success', 'Your email address has been verified.');
 
+=======
+     * @Route("/register/verify/{user}/{token}", name="app_registration_verify")
+     * @param User $user
+     * @param string $token
+     * @return RedirectResponse
+     */
+    public function registerVerify(User $user, string $token)
+    {
+        if ($user->getVerifyToken() == $token) {
+            $user->setIsVerified(true);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+        }
+>>>>>>> release/0.1.0
         return $this->redirectToRoute('app_home');
     }
 }

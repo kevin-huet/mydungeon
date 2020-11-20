@@ -1,0 +1,15 @@
+<nav class="grey darken-4">
+    <div class="nav-wrapper container">
+        <a href="#" class="brand-logo">My Dungeon</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="#">Notif  <span class="new badge yellow darken-4">1</span></a></li>
+            <li>
+                <!-- Dropdown Structure -->
+                <a href="{{ path('app_sync_account') }}" class="btn-small">
+                    {% if app.user.blizzardUser and app.user.blizzardUser.token is not defined %}Sync Blizzard Account{% else %}Refresh Blizzard Account{% endif %}
+                </a>
+            </li>
+            <li><a href="">{{ app.user.username }}</a></li>
+        </ul>
+    </div>
+</nav>

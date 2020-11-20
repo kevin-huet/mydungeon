@@ -1,0 +1,23 @@
+    <div class="grey darken-4 margin border row">
+        {{ group.requests|length }}
+{{ form_start(form) }}
+        <label>
+            {{ form_widget(form.tank, {'attr': {'class': 'filled-in'}}) }}
+            <span>TANK</span>
+        </label>
+        <label>
+            {{ form_widget(form.dps, {'attr': {'class': 'filled-in'}}) }}
+            <span>DPS</span>
+        </label>
+        <label>
+            {{ form_widget(form.heal, {'attr': {'class': 'filled-in'}}) }}
+            <span>HEAL</span>
+        </label>
+        {{ form_row(form.character) }}
+        {{ form_row(form.message, {'attr': {'class': 'materialize-textarea'}}) }}
+        <button class="btn">Submit</button>
+{{ form_end(form) }}
+    </div>
+    <script>
+        $('select').formSelect();
+    </script>

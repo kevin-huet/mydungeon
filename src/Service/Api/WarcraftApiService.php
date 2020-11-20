@@ -22,6 +22,7 @@ class WarcraftApiService
     private $client;
 
     public function __construct(BlizzardApiService $blizzardApi, HttpClientInterface $client)
+<<<<<<< HEAD
    {
        $this->blizzardApi = $blizzardApi;
        $this->client = $client;
@@ -47,4 +48,20 @@ class WarcraftApiService
        }
        return $result;
    }
+=======
+    {
+        $this->blizzardApi = $blizzardApi;
+        $this->client = $client;
+    }
+
+    public function getCharacters(string $token)
+    {
+        if (!$token)
+            return false;
+            $result = $this->client->request('GET', 'https://eu.api.blizzard.com/profile/user/wow', [
+                'query' => ['access_token' => $token, 'namespace' => 'profile-eu', 'locale' => 'fr_FR'],
+            ]);
+            return $result->getContent();
+    }
+>>>>>>> release/0.1.0
 }

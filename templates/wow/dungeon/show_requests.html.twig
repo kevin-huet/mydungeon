@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container grey darken-4 border margin row">
+        {% for request in requests %}
+            {% if request.status == 0 %}
+            <div class="card col s12 grey darken-4" id="request_{{ request.id }}">
+                <div class="card-content white-text">
+                    <p>{{ request.warcraftCharacter.name }}-{{ request.warcraftCharacter.realm }}</p><br/>
+                    <p>
+                        {% for member in request.dungeonGroup.members %}
+                            {% if member.characters and member.characters != request.dungeonGroup.leader%}
+                                {{ member.characters.name }}
+                            {{ member.role }}
+                            {% endif %}
+
+                        {% endfor %}
+                    </p><br/>
+                    {% if 'TANK' in request.role %}
+                        <label>
+                            <input data-role="TANK" type="checkbox" class="filled-in"/>
+                            <span>TANK</span>
+                        </label>
+                        <br/>
+                    {% endif %}
+                    {% if 'DPS' in request.role %}
+                        <label>
+                            <input data-role="DPS" type="checkbox" class="filled-in" checked="checked" />
+                            <span>DPS</span>
+                        </label>
+                        <br/>
+                    {% endif %}
+                    {% if 'HEAL' in request.role %}
+                        <label>
+                            <input data-role="HEAL" type="checkbox" class="filled-in"/>
+                            <span>HEAL</span>
+                        </label>
+                        <br/>
+                    {% endif %}
+                </div>
+                <div>
+                    <div class="card-action">
+                        <button data-status="accepted" data-request="{{ request.id }}" class="btn-small ajax">Accept</button>
+                        <button  data-request="{{ request.id }}" data-status="refused" class="btn-small ajax">decline</button>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+        <div id="ajax-results">here comes the result</div>
+    </div>
+    <script>
+        let role = "DPS";
+        $('input[type="checkbox"]').on('change', function() {
+            role = $(this).data('role');
+            $('input[type="checkbox"]').not(this).prop('checked', false);
+        });
+        $(document).on('click', 'button.ajax', function(){
+            let that = $(this);
+            console.log(that.data('request'))
+            $.ajax({
+                url:'{{ (path('app_accept_request')) }}',
+                type: "POST",
+                dataType: "json",
+                data: {
+                    "some_var_name": that.data('status'),
+                    "groupRequest": that.data('request'),
+                    "role": role
+                },
+                async: true,
+                success: function (data)
+                {
+                    $('#request_'+that.data('request')).remove();
+                    $('div#ajax-results').html(data.output);
+
+                }
+            });
+            return false;
+
+        });
+    </script>
+{% endblock %}

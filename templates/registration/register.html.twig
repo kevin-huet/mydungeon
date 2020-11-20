@@ -3,6 +3,10 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
+<<<<<<< HEAD
+=======
+    <div class="container grey darken-4 border margin">
+>>>>>>> release/0.1.0
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
@@ -18,4 +22,8 @@
 
         <button type="submit" class="btn">Register</button>
     {{ form_end(registrationForm) }}
+<<<<<<< HEAD
+=======
+    </div>
+>>>>>>> release/0.1.0
 {% endblock %}

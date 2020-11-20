@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <div class="container row margin">
+        <div class="col s12 grey darken-4 z-depth-2">
+            <div class="card horizontal grey darken-4">
+                <div class="card-image">
+                    <img class="responsive-img" src="{{ character.thumbnail_url }}">
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        {{ character.name }}
+                        {{ character.realm }}<br>
+                        {{ character.mythic_plus_scores.all }}
+                    </div>
+                    <div class="card-action">
+                        <a target="_blank" href="{{ character.profile_url }}">Raider.io</a>
+                        <a href="#">Armory</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
