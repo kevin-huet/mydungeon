@@ -198,4 +198,136 @@
 [20-Nov-2020 04:07:15 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
 [20-Nov-2020 04:07:40 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
 [20-Nov-2020 04:07:44 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
->>>>>>> release/0.1.0
+[20-Nov-2020 14:03:43 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[20-Nov-2020 14:03:46 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[20-Nov-2020 17:14:11 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[20-Nov-2020 17:15:08 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 03:55:25 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:00:43 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:00:44 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:01:44 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:01:44 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:02:11 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:02:11 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:02:31 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:02:31 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:03:26 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:03:26 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:03:43 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:03:43 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:06:20 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:06:20 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:06:35 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:06:35 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:10:47 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:10:47 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:11:16 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:11:16 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:11:44 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:11:44 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:11:46 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:11:50 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:11:52 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:11:52 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:11:58 Asia/Riyadh] PHP Fatal error:  Allowed memory size of 1610612736 bytes exhausted (tried to allocate 20480 bytes) in /var/www/msmv/vendor/symfony/flex/src/Cache.php on line 44
+[21-Nov-2020 04:11:58 Asia/Riyadh] PHP Fatal error:  Allowed memory size of 1610612736 bytes exhausted (tried to allocate 20480 bytes) in phar:///usr/local/bin/composer/src/Composer/Console/Application.php on line 87
+[21-Nov-2020 04:12:19 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:12:19 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:13:19 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:13:19 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:13:26 Asia/Riyadh] PHP Fatal error:  Allowed memory size of 1610612736 bytes exhausted (tried to allocate 20480 bytes) in /var/www/msmv/vendor/symfony/flex/src/Cache.php on line 44
+[21-Nov-2020 04:13:26 Asia/Riyadh] PHP Fatal error:  Allowed memory size of 1610612736 bytes exhausted (tried to allocate 20480 bytes) in phar:///usr/local/bin/composer/src/Composer/Console/Application.php on line 87
+[21-Nov-2020 04:13:36 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:13:36 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:14:21 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:14:21 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:14:59 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:14:59 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:16:27 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:16:27 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:18:18 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:18:18 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:18:42 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:18:42 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:19:16 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:19:16 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:19:44 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:19:44 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:20:10 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:20:10 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:20:45 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:20:45 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:21:03 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:21:03 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:21:53 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:21:54 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:22:09 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:22:09 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:22:45 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:22:45 Asia/Riyadh] 2020-11-21T04:22:45+03:00 [critical] Uncaught Error: Class 'Gos\Bundle\PubSubRouterBundle\GosPubSubRouterBundle' not found
+[21-Nov-2020 04:24:06 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:24:06 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:24:13 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:24:13 Asia/Riyadh] 2020-11-21T04:24:13+03:00 [critical] Uncaught Error: Class 'Gos\Bundle\PubSubRouterBundle\GosPubSubRouterBundle' not found
+[21-Nov-2020 04:24:57 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:24:57 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:25:03 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:25:03 Asia/Riyadh] 2020-11-21T04:25:03+03:00 [critical] Uncaught Error: Class 'Gos\Bundle\PubSubRouterBundle\GosPubSubRouterBundle' not found
+[21-Nov-2020 04:26:01 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:26:01 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:26:07 Asia/Riyadh] PHP Fatal error:  Allowed memory size of 1610612736 bytes exhausted (tried to allocate 20480 bytes) in /var/www/msmv/vendor/symfony/flex/src/Cache.php on line 50
+[21-Nov-2020 04:26:07 Asia/Riyadh] PHP Fatal error:  Allowed memory size of 1610612736 bytes exhausted (tried to allocate 20480 bytes) in phar:///usr/local/bin/composer/src/Composer/Console/Application.php on line 87
+[21-Nov-2020 04:26:29 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:26:29 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:26:39 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:26:39 Asia/Riyadh] 2020-11-21T04:26:39+03:00 [critical] Uncaught Error: Class 'Gos\Bundle\WebSocketBundle\GosWebSocketBundle' not found
+[21-Nov-2020 04:27:39 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:27:39 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:27:50 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 04:27:59 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 05:41:38 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 05:41:38 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 05:41:46 Asia/Riyadh] PHP Fatal error:  Allowed memory size of 1610612736 bytes exhausted (tried to allocate 20480 bytes) in /var/www/msmv/vendor/symfony/flex/src/Cache.php on line 50
+[21-Nov-2020 05:42:07 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 05:42:07 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 05:54:02 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 05:54:02 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 05:54:43 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 05:54:44 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 05:56:32 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 05:56:32 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 05:56:41 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 05:56:49 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 05:56:58 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 05:56:58 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 05:57:04 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 05:57:04 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 06:00:10 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 06:00:10 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 06:00:19 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 06:00:28 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 06:00:37 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 06:00:37 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 06:01:06 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 06:01:06 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 06:02:45 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 06:02:45 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 06:15:07 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 06:15:27 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 06:15:27 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 06:15:42 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 06:15:46 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 06:43:05 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 06:43:05 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 06:43:08 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 06:43:39 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 06:43:39 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 06:43:40 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 06:43:44 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[21-Nov-2020 21:08:49 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[22-Nov-2020 04:43:15 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[22-Nov-2020 04:43:15 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[22-Nov-2020 04:43:21 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[22-Nov-2020 04:43:26 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[22-Nov-2020 06:20:44 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0
+[22-Nov-2020 06:20:52 Asia/Riyadh] PHP Deprecated:  Directive 'allow_url_include' is deprecated in Unknown on line 0

@@ -2,6 +2,7 @@
 
 namespace App\Repository\WoW;
 
+use App\Entity\BlizzardUser;
 use App\Entity\WoW\DungeonGroupRequest;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\NonUniqueResultException;
@@ -15,6 +16,10 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class DungeonGroupRequestRepository extends ServiceEntityRepository
 {
+    public const STATUS_WAIT = 0;
+    public const STATUS_REFUSED = 1;
+    public const STATUS_ACCEPTED = 2;
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, DungeonGroupRequest::class);
@@ -48,5 +53,19 @@ class DungeonGroupRequestRepository extends ServiceEntityRepository
         } catch (NonUniqueResultException $e) {
             return null;
         }
+    }
+
+    public function findAllWaitRequest(BlizzardUser $blizzardUser)
+    {
+        return $this->createQueryBuilder('d')
+            ->where('d.status = :stat')
+            ->setParameter('stat', self::STATUS_WAIT)
+            ->andWhere('d.sender = :val')
+            ->setParameter('val', $blizzardUser)
+            ->orderBy('d.createdAt', 'DESC')
+            ->setMaxResults(99)
+            ->getQuery()
+            ->getResult()
+            ;
     }
 }

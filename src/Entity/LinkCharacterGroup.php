@@ -21,11 +21,13 @@ class LinkCharacterGroup
 
     /**
      * @ORM\ManyToOne(targetEntity=WarcraftCharacter::class, inversedBy="linkCharacterGroups")
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $characters;
 
     /**
      * @ORM\ManyToOne(targetEntity=DungeonGroup::class, inversedBy="members")
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $dungeonGroup;
 

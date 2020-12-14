@@ -5,6 +5,7 @@ namespace App\Entity\WoW;
 use App\Entity\BlizzardUser;
 use App\Entity\LinkCharacterGroup;
 use App\Repository\WoW\DungeonGroupRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -67,6 +68,11 @@ class DungeonGroup
      */
     private $heal;
 
+    /** @var DateTime
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
     public function __construct()
     {
         $this->members = new ArrayCollection();
@@ -74,6 +80,7 @@ class DungeonGroup
         $this->dps = 0;
         $this->heal = 0;
         $this->tank = 0;
+        $this->createdAt = new DateTime('now');
     }
 
     public function getId(): ?int
@@ -245,5 +252,21 @@ class DungeonGroup
     {
         $this->heal++;
         return $this->heal;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getCreatedAt(): DateTime
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param DateTime $createdAt
+     */
+    public function setCreatedAt(DateTime $createdAt): void
+    {
+        $this->createdAt = $createdAt;
     }
 }
