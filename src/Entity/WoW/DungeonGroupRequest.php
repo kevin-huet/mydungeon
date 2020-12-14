@@ -4,6 +4,7 @@ namespace App\Entity\WoW;
 
 use App\Entity\BlizzardUser;
 use App\Repository\WoW\DungeonGroupRequestRepository;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -48,6 +49,16 @@ class DungeonGroupRequest
      * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $WarcraftCharacter;
+
+    /** @var DateTime
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
+    public function __construct()
+    {
+        $this->createdAt = new DateTime('now');
+    }
 
     public function getId(): ?int
     {
@@ -113,4 +124,21 @@ class DungeonGroupRequest
 
         return $this;
     }
+
+    /**
+     * @return DateTime
+     */
+    public function getCreatedAt(): DateTime
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param DateTime $createdAt
+     */
+    public function setCreatedAt(DateTime $createdAt): void
+    {
+        $this->createdAt = $createdAt;
+    }
+
 }

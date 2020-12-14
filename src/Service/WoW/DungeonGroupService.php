@@ -86,12 +86,14 @@ class DungeonGroupService
         $this->em->flush();
     }
 
-    public function changeRequestGroupStatus(DungeonGroupRequest $groupRequest, int $status, $role)
+    public function changeRequestGroupStatus(BlizzardUser $blizzardUser, DungeonGroupRequest $groupRequest, int $status, $role)
     {
+        $group = $groupRequest->getDungeonGroup();
+        if ($group->getCreator()->getId() != $blizzardUser->getId())
+            return "error: you're not the group creator";
         if ($groupRequest->getStatus() != self::STATUS_WAIT)
             return "error: already updated";
         if ($status == self::STATUS_ACCEPTED) {
-            $group = $groupRequest->getDungeonGroup();
             if ($role == self::ROLE_HEAL)
                 $group->addHeal();
             elseif ($role == self::ROLE_DPS)
@@ -123,6 +125,7 @@ class DungeonGroupService
 
     public function deleteGroup(DungeonGroup $group)
     {
+
         $this->em->remove($group);
         $this->em->flush();
     }

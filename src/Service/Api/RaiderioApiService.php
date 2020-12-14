@@ -17,12 +17,13 @@ class RaiderioApiService
     /**
      * @var HttpClientInterface
      */
-    private $client;
+    protected $client;
 
     public function __construct(HttpClientInterface $client)
     {
         $this->client = $client;
     }
+
 
     public function getCharacter(string $username, string $realm, string $region)
     {

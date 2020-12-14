@@ -4,22 +4,33 @@
 
 {% block body %}
 
-    <div class="container grey darken-4 border margin">
-    {% for flashError in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
-    {% endfor %}
+    <div class="container grey darken-4 border margin z-depth-3">
+        <div class="col s12 m7">
+            <div class="card horizontal grey darken-4">
+                <div class="card-image">
+                    <img style="max-height: 70vh" src="{{ asset('images/banner/register_banner.jpg') }}">
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        {% for flashError in app.flashes('verify_email_error') %}
+                            <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+                        {% endfor %}
 
-    <h1>Register</h1>
+                        <h3 class="white-text">Register</h3>
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
-
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
-
+                        {{ form_start(registrationForm) }}
+                        {{ form_row(registrationForm.email) }}
+                        {{ form_row(registrationForm.plainPassword, {
+                            label: 'Password'
+                        }) }}
+                        {{ form_row(registrationForm.agreeTerms) }}
+                        <br>
+                        <div class="g-recaptcha" data-sitekey="6LcKIegZAAAAAKpAN1XVHvxB5Pn19N9CjpwbdBNI"></div><br>
+                        <button class="btn">Submit</button>
+                        {{ form_end(registrationForm) }}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

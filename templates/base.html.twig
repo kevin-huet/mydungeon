@@ -5,9 +5,10 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="https://www.google.com/recaptcha/api.js"></script>
     </head>
     <body class="grey darken-3">
         {% block navbar %}
@@ -93,7 +94,7 @@
 
         .margin {
             margin-top: 4em;
-            margin-bottom: 4em;
+            margin-bottom: 8em!important;
         }
 
         .full-size{
@@ -146,6 +147,11 @@
             box-shadow: 0 1px 0 0 #cc6d00!important;
         }
 
+        ul li {
+            background-color: #222222;
+            color:white!important;
+        }
+
     </style>
     <script>
         $(document).ready(function(){
@@ -182,6 +188,27 @@
                 }).fail(function (jqXHR) {
                     console.log(jqXHR.responseText);
                 });
+            });
+
+            $(document).on('click', '#count_request', function(){
+                let that = $(this);
+                console.log("request sended")
+                $.ajax({
+                    url:'{{ (path('app_count_request')) }}',
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                    },
+                    async: true,
+                    success: function (data)
+                    {
+                        console.log("success: "+data)
+                        $('#request_result').text(data);
+                        console.log($('#request_result'))
+
+                    }
+                });
+                return false;
             });
         });
     </script>

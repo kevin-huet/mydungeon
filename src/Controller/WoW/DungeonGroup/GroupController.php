@@ -198,18 +198,43 @@ class GroupController extends AbstractController
      */
     public function acceptRequest(Request $request)
     {
+        /** @var User $user **/
+        $user = $this->getUser();
+        if (!$user || !$user->getBlizzardUser())
+            return new JsonResponse();
         if($request->request->get('some_var_name') && $request->request->get('some_var_name') == "accepted"){
-            $arrData = ['output' => $this->groupService->changeRequestGroupStatus($this->requestRepository->findOneById(
+            $arrData = ['output' => $this->groupService->changeRequestGroupStatus($user->getBlizzardUser(),
+                $this->requestRepository->findOneById(
                 $request->request->get('groupRequest')),
                 self::STATUS_ACCEPTED, $request->request->get('role')),
                 ];
             return new JsonResponse($arrData);
         } elseif ($request->request->get('some_var_name')) {
-            $arrData = ['output' => $this->groupService->changeRequestGroupStatus($this->requestRepository->findOneById(
+            $arrData = ['output' => $this->groupService->changeRequestGroupStatus($user->getBlizzardUser(),
+                $this->requestRepository->findOneById(
                 $request->request->get('groupRequest')),
                 self::STATUS_REFUSED, $request->request->get('role')),];
             return new JsonResponse($arrData);
         }
         return new JsonResponse();
+    }
+
+    /**
+     * @Route("/requests/count", name="app_count_request")
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function countNewRequest(Request $request)
+    {
+        /** @var User $user **/
+        $user = $this->getUser();
+        /** @var BlizzardUser $blizzardUser */
+        $blizzardUser = $user->getBlizzardUser();
+
+        if (!$blizzardUser)
+            return new JsonResponse(0);
+
+        $results = $this->requestRepository->findAllWaitRequest($blizzardUser);
+        return new JsonResponse(count($results));
     }
 }
