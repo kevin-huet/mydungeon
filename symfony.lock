@@ -2,9 +2,6 @@
     "brick/math": {
         "version": "0.9.1"
     },
-    "cboden/ratchet": {
-        "version": "v0.4.3"
-    },
     "composer/package-versions-deprecated": {
         "version": "1.11.99"
     },
@@ -114,8 +111,8 @@
     "enqueue/null": {
         "version": "0.10.4"
     },
-    "evenement/evenement": {
-        "version": "v3.0.1"
+    "friendsofphp/proxy-manager-lts": {
+        "version": "v1.0.3"
     },
     "google/recaptcha": {
         "version": "1.1",
@@ -128,18 +125,6 @@
         "files": [
             "config/packages/google_recaptcha.yaml"
         ]
-    },
-    "gos/pubsub-router-bundle": {
-        "version": "v2.3.0"
-    },
-    "gos/web-socket-bundle": {
-        "version": "v3.5.0"
-    },
-    "gos/websocket-client": {
-        "version": "v1.3.0"
-    },
-    "guzzlehttp/psr7": {
-        "version": "1.7.0"
     },
     "laminas/laminas-code": {
         "version": "3.4.1"
@@ -183,9 +168,6 @@
     "psr/event-dispatcher": {
         "version": "1.0.0"
     },
-    "psr/http-message": {
-        "version": "1.0.1"
-    },
     "psr/link": {
         "version": "1.0.0"
     },
@@ -198,38 +180,11 @@
     "queue-interop/queue-interop": {
         "version": "0.8.0"
     },
-    "ralouphie/getallheaders": {
-        "version": "3.0.3"
-    },
     "ramsey/collection": {
         "version": "1.1.1"
     },
     "ramsey/uuid": {
         "version": "4.1.1"
-    },
-    "ratchet/rfc6455": {
-        "version": "v0.3"
-    },
-    "react/cache": {
-        "version": "v1.1.0"
-    },
-    "react/dns": {
-        "version": "v1.4.0"
-    },
-    "react/event-loop": {
-        "version": "v1.1.1"
-    },
-    "react/promise": {
-        "version": "v2.8.0"
-    },
-    "react/promise-timer": {
-        "version": "v1.6.0"
-    },
-    "react/socket": {
-        "version": "v1.6.0"
-    },
-    "react/stream": {
-        "version": "v1.1.1"
     },
     "sensio/framework-extra-bundle": {
         "version": "5.2",
@@ -653,6 +608,15 @@
             "config/packages/test/web_profiler.yaml",
             "config/routes/dev/web_profiler.yaml"
         ]
+    },
+    "symfony/webpack-encore-pack": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "e18b0c550c3ee79142dc314b3e38193caafe4bb5"
+        }
     },
     "symfony/yaml": {
         "version": "v5.1.8"
