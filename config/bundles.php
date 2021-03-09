@@ -14,6 +14,4 @@ return [
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
     SymfonyCasts\Bundle\VerifyEmail\SymfonyCastsVerifyEmailBundle::class => ['all' => true],
     Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle::class => ['all' => true],
-    Gos\Bundle\PubSubRouterBundle\GosPubSubRouterBundle::class => ['all' => true],
-    Gos\Bundle\WebSocketBundle\GosWebSocketBundle::class => ['all' => true],
 ];
