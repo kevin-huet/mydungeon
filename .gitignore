@@ -57,5 +57,5 @@
 /.env.test
 /.idea
 /migrations/*
-/node_modules
+/node_modules/*
 /config/
