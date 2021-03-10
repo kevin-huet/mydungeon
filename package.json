@@ -21,5 +21,8 @@
   "scripts": {
     "build:dev": "encore dev",
     "build:prod": "encore production"
+  },
+  "dependencies": {
+    "webpack-notifier": "^1.13.0"
   }
 }
