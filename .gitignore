@@ -57,7 +57,6 @@
 /.env.test
 /.idea
 /migrations/*
-/node_modules/*
 /config/
 
 ###> symfony/webpack-encore-pack ###
