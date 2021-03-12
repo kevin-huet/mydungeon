@@ -12,8 +12,19 @@
                         {{ character.name }}
                         {{ character.realm }}<br>
                         raiderIo score: {{ character.mythic_plus_scores.all }}<br>
-                        <a  href="#" data-wowhead="spell=321079"></a>{{ character.covenant.name }} - lvl:
-                        {{ character.covenant.renown_level }}
+                        {% if character.covenant != null %}
+                            {% if character.covenant.name == "Venthyr" %}
+                                <a  href="#" data-wowhead="spell=321079"></a>
+                            {% elseif character.covenant.name == "Kyrian" %}
+                                <a  href="#" data-wowhead="spell=321076"></a>
+                            {% elseif character.covenant.name == "Necrolord" %}
+                                <a  href="#" data-wowhead="spell=321078"></a>
+                            {% elseif character.covenant.name == "Night Fae" %}
+                                <a  href="#" data-wowhead="spell=321077"></a>
+                            {% endif %}
+                            {{ character.covenant.name }} - lvl:
+                            {{ character.covenant.renown_level }}
+                        {% endif %}
                     </div>
                     <div class="card-action">
                         <a target="_blank" href="{{ character.profile_url }}">Raider.io</a>
@@ -27,7 +38,14 @@
                     <div class="card-content white-text">
                         <span class="card-title">Gear</span>
                         {% for item in character.gear.items %}
-                            <a href="#" data-wowhead="item={{ item.item_id }}&ilvl={{ item.item_level }}&item"></a>
+                            <a href="#" data-wowhead="item={{ item.item_id }}
+                            &ilvl={{ item.item_level }}&ench=
+                            {% if item.enchant is defined %}
+                            {{ item.enchant }}
+                            {% endif %}
+                            &gems={{ item.gems|join(':') }}
+                            &item&bonus={{ item.bonuses|join(':') }}">
+                            </a>
                         {% endfor %}
                     </div>
                     <div class="card-action">
@@ -39,6 +57,6 @@
     </div>
 {% endblock %}
 {% block javascripts %}
-    <script>const whTooltips = {colorLinks: true, iconizeLinks: true, iconSize: 'medium'};</script>
+    <script>const whTooltips = {colorLinks: true, iconizeLinks: true, iconSize: 'medium'}</script>
     <script src="https://wow.zamimg.com/widgets/power.js"></script>
 {% endblock %}

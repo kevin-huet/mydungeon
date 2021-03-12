@@ -34,6 +34,7 @@
     </body>
     <style>
 
+
         label {
             color:whitesmoke;
         }
@@ -151,6 +152,34 @@
             color:white!important;
         }
 
+        #wave {
+            position: relative;
+            height: 70px;
+            width: 600px;
+            background: #e0efe3;
+        }
+        #wave:before {
+            content: "";
+            display: block;
+            position: absolute;
+            border-radius: 100% 50%;
+            width: 340px;
+            height: 80px;
+            background-color: white;
+            right: -5px;
+            top: 40px;
+        }
+        #wave:after {
+            content: "";
+            display: block;
+            position: absolute;
+            border-radius: 100% 50%;
+            width: 300px;
+            height: 70px;
+            background-color: #e0efe3;
+            left: 0;
+            top: 27px;
+        }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
