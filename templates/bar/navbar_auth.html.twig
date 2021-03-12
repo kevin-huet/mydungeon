@@ -1,7 +1,7 @@
 <nav class="grey darken-4">
     <div class="nav-wrapper container">
         <a href="#" class="brand-logo">MyDungeon</a>
-
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a>News</a></li>
             <li><a>How to use</a></li>
@@ -16,7 +16,7 @@
 <ul id='dropdown1' class='dropdown-content'>
     <li><a href="">Profile</a></li>
     <li><a href="">
-            {% if app.user.blizzardUser and app.user.blizzardUser.token is not defined %}
+            {% if app.user.blizzardUser is not defined or app.user.blizzardUser.token is not defined %}
                 Sync Blizzard Account
             {% else %}
                 Refresh Blizzard Account
@@ -31,4 +31,9 @@
     <li><a href="">Search Group</a></li>
     <li><a href="">Group List</a></li>
     <li><a href="">Create Group</a></li>
+</ul>
+
+<ul class="sidenav" id="mobile-navbar">
+    <li><a>News</a></li>
+    <li><a>How to use</a></li>
 </ul>

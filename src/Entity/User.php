@@ -49,7 +49,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string")
      */
-    private $verifyToken;
+    private $verifyToken = "";
 
     public function getId(): ?int
     {

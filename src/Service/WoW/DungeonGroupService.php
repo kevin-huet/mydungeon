@@ -52,11 +52,11 @@ class DungeonGroupService
 
         $character->addLinkCharacterGroup($linkCharacter);
 
-        if ($linkCharacter->getRole() == "DPS")
+        if ($linkCharacter->getRole() == self::ROLE_DPS)
             $group->addDps();
-        elseif ($linkCharacter->getRole() == "TANK")
+        elseif ($linkCharacter->getRole() == self::ROLE_TANK)
             $group->addTank();
-        elseif ($linkCharacter->getRole() == "HEAL")
+        elseif ($linkCharacter->getRole() == self::ROLE_HEAL)
             $group->addHeal();
 
         $this->em->persist($linkCharacter);
@@ -98,7 +98,7 @@ class DungeonGroupService
                 $group->addHeal();
             elseif ($role == self::ROLE_DPS)
                 $group->addDps();
-            else
+            elseif ($role == self::ROLE_TANK)
                 $group->addTank();
 
             $groupLinkCharacter = new LinkCharacterGroup();

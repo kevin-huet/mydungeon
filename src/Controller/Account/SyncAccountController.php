@@ -40,10 +40,6 @@ class SyncAccountController extends AbstractController
     /**
      * @var WarcraftApiService
      */
-    private $WarcraftApi;
-    /**
-     * @var WarcraftApiService
-     */
     private $warcraftApi;
     /**
      * @var CharacterRepository
@@ -127,7 +123,7 @@ class SyncAccountController extends AbstractController
             echo $result;
             $result = json_decode($result, true);
             foreach ($result['wow_accounts'][0]['characters'] as $character) {
-                if ($character['level'] == 50 && !$this->checkIfCharacterExist($user, $character)) {
+                if ($character['level'] >= 50 && !$this->checkIfCharacterExist($user, $character)) {
                     $newCharacter = new WarcraftCharacter();
                     $newCharacter->setName($character['name']);
                     $newCharacter->setPlayableClass($character['playable_class']['id']);

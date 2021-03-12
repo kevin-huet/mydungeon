@@ -1,0 +1,6 @@
+docker exec docker_php_1 /bin/sh -c "composer install"
+docker exec docker_php_1 /bin/sh -c "composer update"
+docker exec docker_php_1 /bin/sh -c "./bin/console doctrine:database:create --if-not-exists"
+docker exec docker_php_1 /bin/sh -c "mkdir migrations"
+docker exec docker_php_1 /bin/sh -c "./bin/console doctrine:migrations:diff"
+docker exec docker_php_1 /bin/sh -c "./bin/console doctrine:migrations:migrate"

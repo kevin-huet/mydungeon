@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block navbar %}
+    {% include 'bar/navbar_admin.html.twig' %}
+{% endblock %}
+
+{% block body %}
+    <div class="container row margin">
+        <div class="col s12 grey darken-4 z-depth-2">
+            <div class="card horizontal grey darken-4">
+                <div class="card-stacked">
+                    <div class="card-content white-text">
+                        <table> <!-- add materialize classes, as desired -->
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Email</th>
+                                <th>Actions</th>
+                            </thead>
+                            <tbody>
+                            {% for user in users %}
+                                <tr>
+                                    <td>{{ user.id }}</td>
+                                    <td>{{ user.email }}</td>
+                                    <td>
+                                        <a href="{{ path('app_admin_user_edit', {user: user.id}) }}" class="waves-effect btn-small blue lighten-2">
+                                            <i class="material-icons white-text">edit</i>
+                                        </a>
+                                        <a href="{{ path('app_admin_user_punishment', {user: user.id}) }}" class="waves-effect btn-small orange lighten-1">
+                                            <i class="material-icons white-text">do_not_disturb_on</i>
+                                        </a>
+                                        <a href="{{ path('app_admin_user_delete', {user: user.id}) }}" class="waves-effect btn-small red  lighten-1
+                                            {% if user == app.user %}disabled{% endif %}
+                                        ">
+                                            <i class="material-icons white-text">delete</i>
+                                        </a>
+
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-action">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

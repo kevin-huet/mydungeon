@@ -8,10 +8,12 @@
                     <img class="responsive-img" src="{{ character.thumbnail_url }}">
                 </div>
                 <div class="card-stacked">
-                    <div class="card-content">
+                    <div class="card-content white-text">
                         {{ character.name }}
                         {{ character.realm }}<br>
-                        {{ character.mythic_plus_scores.all }}
+                        raiderIo score: {{ character.mythic_plus_scores.all }}<br>
+                        <a  href="#" data-wowhead="spell=321079"></a>{{ character.covenant.name }} - lvl:
+                        {{ character.covenant.renown_level }}
                     </div>
                     <div class="card-action">
                         <a target="_blank" href="{{ character.profile_url }}">Raider.io</a>
@@ -19,6 +21,24 @@
                     </div>
                 </div>
             </div>
+
+            <div class="card horizontal grey darken-4">
+                <div class="card-stacked">
+                    <div class="card-content white-text">
+                        <span class="card-title">Gear</span>
+                        {% for item in character.gear.items %}
+                            <a href="#" data-wowhead="item={{ item.item_id }}&ilvl={{ item.item_level }}&item"></a>
+                        {% endfor %}
+                    </div>
+                    <div class="card-action">
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+{% endblock %}
+{% block javascripts %}
+    <script>const whTooltips = {colorLinks: true, iconizeLinks: true, iconSize: 'medium'};</script>
+    <script src="https://wow.zamimg.com/widgets/power.js"></script>
 {% endblock %}
