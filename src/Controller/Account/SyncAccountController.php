@@ -120,7 +120,6 @@ class SyncAccountController extends AbstractController
     {
         if ($user) {
             $result = $this->warcraftApi->getCharacters($user->getToken());
-            echo $result;
             $result = json_decode($result, true);
             foreach ($result['wow_accounts'][0]['characters'] as $character) {
                 if ($character['level'] >= 50 && !$this->checkIfCharacterExist($user, $character)) {

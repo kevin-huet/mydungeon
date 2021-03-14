@@ -28,17 +28,13 @@ class RaiderioApiService
     public function getCharacter(string $username, string $realm, string $region)
     {
 
-        $url = self::URL."characters/profile?region={region}&realm={realm}&name={name}&fields=mythic_plus_scores,gear,covenant";
+        $url = self::URL."characters/profile?region={region}&realm={realm}&name={name}&fields=mythic_plus_scores,gear,covenant,mythic_plus_best_runs";
         $url = str_replace(['{region}', '{realm}', '{name}'], [$region, $realm, $username], $url);
 
         try {
             $response = $this->client->request('GET', $url);
             return $response->toArray();
-        } catch (TransportExceptionInterface $e) {
-        } catch (ClientExceptionInterface $e) {
-        } catch (ServerExceptionInterface $e) {
-        } catch (DecodingExceptionInterface $e) {
-        } catch (RedirectionExceptionInterface $e) {
+        } catch (TransportExceptionInterface | ClientExceptionInterface | DecodingExceptionInterface | ServerExceptionInterface | RedirectionExceptionInterface $e) {
         }
         return false;
     }
@@ -51,11 +47,7 @@ class RaiderioApiService
         try {
             $response = $this->client->request('GET', $url);
             return $response->toArray();
-        } catch (TransportExceptionInterface $e) {
-        } catch (ClientExceptionInterface $e) {
-        } catch (DecodingExceptionInterface $e) {
-        } catch (RedirectionExceptionInterface $e) {
-        } catch (ServerExceptionInterface $e) {
+        } catch (TransportExceptionInterface | ServerExceptionInterface | DecodingExceptionInterface | ClientExceptionInterface | RedirectionExceptionInterface $e) {
         }
         return false;
     }
@@ -67,11 +59,7 @@ class RaiderioApiService
         try {
             $response = $this->client->request('GET', $url);
             return $response->toArray();
-        } catch (ClientExceptionInterface $e) {
-        } catch (DecodingExceptionInterface $e) {
-        } catch (RedirectionExceptionInterface $e) {
-        } catch (ServerExceptionInterface $e) {
-        } catch (TransportExceptionInterface $e) {
+        } catch (ClientExceptionInterface | TransportExceptionInterface | DecodingExceptionInterface | RedirectionExceptionInterface | ServerExceptionInterface $e) {
         }
         return false;
     }

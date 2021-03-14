@@ -23,6 +23,8 @@
     "build:prod": "encore production"
   },
   "dependencies": {
-    "webpack-notifier": "^1.13.0"
+    "materialize-css": "^1.0.0",
+    "materialize-loader": "^3.0.1",
+    "webpack-notifier": "^1.6.0"
   }
 }

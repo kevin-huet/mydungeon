@@ -6,10 +6,12 @@
         {% block stylesheets %}{% endblock %}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        {{ encore_entry_link_tags('app') }}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://www.google.com/recaptcha/api.js"></script>
     </head>
-    <body class="grey darken-3">
+    <body>
+    <div id="request_url" hidden data-url="{{ (path('app_count_request')) }}"></div>
         {% block navbar %}
             {% if app.user  %}
                 {% include 'bar/navbar_auth.html.twig' %}
@@ -19,8 +21,9 @@
         {% endblock %}
 
         <div style="min-height: 100vh">
-            {% block body %}{% endblock %}
 
+
+                {% block body %}{% endblock %}
         </div>
         <div id="modal1" class="modal grey darken-4">
             <div class="modal-content grey darken-4 white-text">
@@ -32,213 +35,28 @@
 
         {% block javascripts %}{% endblock %}
     </body>
-    <style>
-
-
-        label {
-            color:whitesmoke;
-        }
-        input {
-            color:white
-        }
-
-        td {
-            color:white
-        }
-
-        th {
-            color:white
-        }
-
-        .dropdown-content li a {
-            color:white;
-        }
-
-        .dropdown-content li:hover {
-            background:#ffa033;
-        }
-
-        .colored {
-            color: #ff8800;
-        }
-        .btn {
-            background-color:  #cc6d00;
-
-        }
-        .btn:hover{
-            background-color:  #ffa033;
-
-        }
-
-        .btn:active{
-            background-color:  #ffa033!important;
-
-        }
-
-        .btn-small:active{
-            background-color:  #ffa033!important;
-
-        }
-
-        .btn-small {
-            background-color:  #cc6d00;
-        }
-
-        .btn-small:hover {
-            background-color:  #ffa033;
-        }
-
-        .border {
-            padding: 2em 2em 2em 2em;
-        }
-
-        .margin {
-            margin-top: 4em;
-            margin-bottom: 8em!important;
-        }
-
-        .full-size{
-            min-height: 100vh;
-        }
-
-        /* label focus color */
-        .input-field input[type=text]:focus + label {
-            color: #cc6d00!important;
-        }
-        /* label underline focus color */
-        .input-field input[type=text]:focus {
-            border-bottom: 1px solid #cc6d00!important;
-            box-shadow: 0 1px 0 0 #cc6d00!important;
-        }
-
-        .select-dropdown {
-            background-color: #222222;
-            color:white!important;
-        }
-        .select-dropdown li {
-            background-color: #222222;
-            color:white!important;
-        }
-        .select-dropdown li span {
-            color:#cc6d00!important;
-        }
-
-
-        [type="checkbox"].filled-in:checked+span:not(.lever):after{
-            border:2px solid #cc6d00;
-            background-color:#cc6d00;
-        }
-
-        [type="checkbox"].filled-in.tabbed:checked:focus+span:not(.lever):after{
-            background-color:black;
-            border-color:black;
-        }
-        textarea {
-            color:white!important;
-        }
-
-        input:focus {
-            border-bottom: 1px solid #cc6d00!important;
-            box-shadow: 0 1px 0 0 #cc6d00!important;
-        }
-
-        textarea:focus {
-            border-bottom: 1px solid #cc6d00!important;
-            box-shadow: 0 1px 0 0 #cc6d00!important;
-        }
-
-        ul li {
-            background-color: #222222;
-            color:white!important;
-        }
-
-        #wave {
-            position: relative;
-            height: 70px;
-            width: 600px;
-            background: #e0efe3;
-        }
-        #wave:before {
-            content: "";
-            display: block;
-            position: absolute;
-            border-radius: 100% 50%;
-            width: 340px;
-            height: 80px;
-            background-color: white;
-            right: -5px;
-            top: 40px;
-        }
-        #wave:after {
-            content: "";
-            display: block;
-            position: absolute;
-            border-radius: 100% 50%;
-            width: 300px;
-            height: 70px;
-            background-color: #e0efe3;
-            left: 0;
-            top: 27px;
-        }
-    </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('select').formSelect();
-            $(".dropdown-trigger").dropdown({ constrainWidth: false, coverTrigger: false});
-            $('.sidenav').sidenav();
-            $('.modal').modal();
-            $('.show-group').click(function(event) {
-                event.preventDefault();
-                event.stopPropagation();
-                $.ajax({
-                    url: $(this).attr('href'),
-                    type: 'GET',
-                    dataType: 'html',
-                }).done(function (data) {
-                    $('.modal-content').html(data);
-                    $('#modal1').modal('open');
-                }).fail(function (jqXHR) {
-                    console.log(jqXHR.responseText);
-                });
-            });
+    {{ encore_entry_script_tags('app') }}
+<script>
+    $(document).on('click', '#count_request', function(){
+        let that = $(this);
+        console.log("request sended")
+        $.ajax({
+            url:'{{ (path('app_count_request')) }}',
+            type: "POST",
+            dataType: "json",
+            data: {
+            },
+            async: true,
+            success: function (data)
+            {
+                console.log("success: "+data)
+                $('#request_result').text(data);
+                console.log($('#request_result'))
 
-            $('.send-group-request').click(function(event) {
-                event.preventDefault();
-                event.stopPropagation();
-                $.ajax({
-                    url: $(this).attr('href'),
-                    type: 'GET',
-                    dataType: 'html',
-                }).done(function (data) {
-                    $('.modal-content').html(data);
-                    $('#modal1').modal('open', {
-                    });
-                }).fail(function (jqXHR) {
-                    console.log(jqXHR.responseText);
-                });
-            });
-
-            $(document).on('click', '#count_request', function(){
-                let that = $(this);
-                console.log("request sended")
-                $.ajax({
-                    url:'{{ (path('app_count_request')) }}',
-                    type: "POST",
-                    dataType: "json",
-                    data: {
-                    },
-                    async: true,
-                    success: function (data)
-                    {
-                        console.log("success: "+data)
-                        $('#request_result').text(data);
-                        console.log($('#request_result'))
-
-                    }
-                });
-                return false;
-            });
+            }
         });
-    </script>
+        return false;
+    });
+</script>
 </html>

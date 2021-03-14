@@ -1,15 +1,44 @@
-// assets/app.js
-/*
- * Welcome to your app's main JavaScript file!
- *
- * We recommend including the built version of this JavaScript file
- * (and its CSS file) in your base layout (base.html.twig).
- */
 
-// any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
+import $ from 'jquery';
+import {
+    Modal,
+    Dropdown
+} from 'materialize-css';
 
-// Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
-// import $ from 'jquery';
 
-console.log('Hello Webpack Encore! Edit me in assets/app.js');
+$(document).ready(function() {
+    M.Modal.init($('.modal'), {});
+    M.Dropdown.init($('.dropdown-trigger'), { constrainWidth: false, coverTrigger: false});
+
+    $('.show-group').click(function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        $.ajax({
+            url: $(this).attr('href'),
+            type: 'GET',
+            dataType: 'html',
+        }).done(function (data) {
+            $('.modal-content').html(data);
+            $('#modal1').modal('open');
+        }).fail(function (jqXHR) {
+            console.log(jqXHR.responseText);
+        });
+    });
+
+    $('.send-group-request').click(function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        $.ajax({
+            url: $(this).attr('href'),
+            type: 'GET',
+            dataType: 'html',
+        }).done(function (data) {
+            $('.modal-content').html(data);
+            $('#modal1').modal('open', {
+            });
+        }).fail(function (jqXHR) {
+            console.log(jqXHR.responseText);
+        });
+    });
+});

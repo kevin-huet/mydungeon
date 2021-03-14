@@ -2,16 +2,16 @@
 {% block body %}
 
     <div class="container row margin">
-        <div class="col s12 grey darken-4 z-depth-2">
+        <div class="col s12 dark-5 z-depth-2">
             <div class="card horizontal grey darken-4">
                 <div class="card-image">
-                    <img class="responsive-img" src="{{ character.thumbnail_url }}">
+                    <img class="wow-thumbnail responsive-img" src="{{ character.thumbnail_url }}" alt="{{ character.name }}">
                 </div>
                 <div class="card-stacked">
                     <div class="card-content white-text">
                         {{ character.name }}
                         {{ character.realm }}<br>
-                        raiderIo score: {{ character.mythic_plus_scores.all }}<br>
+                        raiderIo score: <b style="color: {{ character.scoreColor }}">{{ character.mythic_plus_scores.all }}</b><br>
                         {% if character.covenant != null %}
                             {% if character.covenant.name == "Venthyr" %}
                                 <a  href="#" data-wowhead="spell=321079"></a>
@@ -53,8 +53,49 @@
                     </div>
                 </div>
             </div>
+
+            <div class="card horizontal grey darken-4">
+                <div class="card-stacked">
+                    <div class="card-content white-text">
+                        <span class="card-title">Dungeon</span>
+
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Dungeon</th>
+                                <th>Mythic lvl</th>
+                                <th>Score</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            {% for run in character.mythic_plus_best_runs %}
+                                <tr>
+                                    <td>{{ run.short_name }}</td>
+                                    <td>+{{ run.mythic_level }}{% for i in 1..run.num_keystone_upgrades %}<i class="tiny orange-text darken-2 material-icons">star</i>{% endfor %}</td>
+                                    <td>{{ run.score }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <div class="card-action">
+
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
+    <style>
+        .wow-thumbnail {
+            border: solid papayawhip 1px;
+        }
+        .dark-5 {
+            background: #1a1a1a;
+        }
+    </style>
 {% endblock %}
 {% block javascripts %}
     <script>const whTooltips = {colorLinks: true, iconizeLinks: true, iconSize: 'medium'}</script>
