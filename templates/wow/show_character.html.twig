@@ -58,6 +58,19 @@
                 <div class="card-stacked">
                     <div class="card-content white-text">
                         <span class="card-title">Dungeon</span>
+                        <canvas id="player_notation"></canvas>
+
+                    </div>
+                    <div class="card-action">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card horizontal grey darken-4">
+                <div class="card-stacked">
+                    <div class="card-content white-text">
+                        <span class="card-title">Dungeon</span>
 
                         <table>
                             <thead>
@@ -70,7 +83,7 @@
 
                             <tbody>
                             {% for run in character.mythic_plus_best_runs %}
-                                <tr>
+                                <tr onclick="window.location='{{ run.url }}';">
                                     <td>{{ run.short_name }}</td>
                                     <td>+{{ run.mythic_level }}{% for i in 1..run.num_keystone_upgrades %}<i class="tiny orange-text darken-2 material-icons">star</i>{% endfor %}</td>
                                     <td>{{ run.score }}</td>
@@ -89,12 +102,7 @@
         </div>
     </div>
     <style>
-        .wow-thumbnail {
-            border: solid papayawhip 1px;
-        }
-        .dark-5 {
-            background: #1a1a1a;
-        }
+
     </style>
 {% endblock %}
 {% block javascripts %}

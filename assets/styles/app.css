@@ -18,6 +18,13 @@ th {
     color:white
 }
 
+.wow-thumbnail {
+    border: solid papayawhip 1px;
+}
+.dark-5 {
+    background: #1a1a1a;
+}
+
 .dropdown-content li a {
     color:white;
 }
