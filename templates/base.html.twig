@@ -6,6 +6,10 @@
         {% block stylesheets %}{% endblock %}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link
+                rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
         {{ encore_entry_link_tags('app') }}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://www.google.com/recaptcha/api.js"></script>
@@ -21,14 +25,14 @@
         {% endblock %}
 
         <div style="min-height: 100vh">
-
-
-                {% block body %}{% endblock %}
+            {% block body %}{% endblock %}
         </div>
+
         <div id="modal1" class="modal grey darken-4">
             <div class="modal-content grey darken-4 white-text">
             </div>
         </div>
+
         {% block footer %}
             {% include 'bar/footer.html.twig' %}
         {% endblock %}
@@ -36,6 +40,9 @@
         {% block javascripts %}{% endblock %}
     </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    {% if app.user %}
+        <script src="{{ asset('build/connectedUser.js') }}"></script>
+    {% endif %}
     {{ encore_entry_script_tags('app') }}
 <script>
 </script>

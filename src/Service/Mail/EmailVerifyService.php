@@ -6,6 +6,7 @@ namespace App\Service\Mail;
 
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
+use Swift_Image;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class EmailVerifyService

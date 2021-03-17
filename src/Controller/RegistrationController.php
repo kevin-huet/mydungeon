@@ -46,12 +46,12 @@ class RegistrationController extends AbstractController
                 )
             );
             $user->setVerifyToken(md5(uniqid($user->getEmail(), true)));
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
-            $entityManager->flush();
             $render = $this->renderView(
                 'mail/mail_confirmation.html.twig',
                 ['userId' => $user->getId(), 'token' => $user->getVerifyToken()]);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
             $this->emailVerifyService->sendMailVerification($render, $user->getEmail());
             return $this->redirectToRoute('app_home');
         }

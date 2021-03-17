@@ -7,6 +7,7 @@ use App\Entity\User;
 use App\Repository\UserRepository;
 use App\Service\User\UserService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -80,11 +81,12 @@ class AdminUsersController extends AbstractController
     /**
      * @Route("/user/{user}/delete", name="app_admin_user_delete")
      * @param User $user
-     * @return void
+     * @return RedirectResponse
      */
     public function deleteUser(User $user) {
         $this->userService->delete($user);
         $this->redirectToRoute('app_admin_users');
+        return $this->redirectToRoute('app_admin');
     }
 
     /**
