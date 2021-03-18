@@ -12,6 +12,7 @@
         "doctrine/doctrine-bundle": "^2.1",
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "doctrine/orm": "^2.7",
+        "easycorp/easyadmin-bundle": "^3.2",
         "enqueue/enqueue-bundle": "^0.10.6",
         "enqueue/fs": "^0.10.4",
         "google/recaptcha": "~1.1",

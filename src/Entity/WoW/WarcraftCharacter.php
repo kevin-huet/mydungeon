@@ -23,8 +23,8 @@ class WarcraftCharacter
     private $id;
 
     /**
-     * @var int
-     * @ORM\Column
+     * @var integer
+     * @ORM\Column(type="integer")
      */
     private $playableClass;
 

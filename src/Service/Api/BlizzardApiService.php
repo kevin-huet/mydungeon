@@ -63,7 +63,7 @@ class BlizzardApiService
 
     }
 
-    protected function accessToken()
+    public function accessToken()
     {
         try {
             $response = $this->client->request('POST', 'https://eu.battle.net/oauth/token', [

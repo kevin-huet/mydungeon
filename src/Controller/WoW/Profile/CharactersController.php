@@ -6,7 +6,9 @@ namespace App\Controller\WoW\Profile;
 
 use App\Entity\BlizzardUser;
 use App\Entity\User;
+use App\Repository\DungeonDataRepository;
 use App\Service\Api\RaiderioApiService;
+use App\Service\Api\WarcraftApiService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -22,10 +24,21 @@ class CharactersController extends AbstractController
      * @var RaiderioApiService
      */
     private $raiderApi;
+    /**
+     * @var DungeonDataRepository
+     */
+    private $dungeonRepository;
+    /**
+     * @var WarcraftApiService
+     */
+    private $warcraftApi;
 
-    public function __construct(RaiderioApiService $raiderioApiService)
+    public function __construct(RaiderioApiService $raiderioApiService, DungeonDataRepository $dungeonRepository,
+        WarcraftApiService $warcraftApiService)
     {
         $this->raiderApi = $raiderioApiService;
+        $this->dungeonRepository = $dungeonRepository;
+        $this->warcraftApi = $warcraftApiService;
     }
 
     /**
@@ -73,6 +86,12 @@ class CharactersController extends AbstractController
         $scoreTier = $this->raiderApi->getScoreTiers();
         $character = $this->raiderApi->getCharacter($username, $realm, 'eu');
         $character['scoreColor'] = $this->setColorByScore($character['mythic_plus_scores']['all'], $scoreTier);
-        return $this->render('wow/show_character.html.twig', ['character' => $character]);
+        $dungeon = $this->dungeonRepository->findDungeonLastExpansion(true);
+
+        $spe = $this->warcraftApi->getCharacterSpecialization($realm, $username);
+        $spe = json_decode($spe, true);
+        return $this->render('wow/show_character.html.twig', ['character' => $character, 'dungeons' => $dungeon,
+            'talents' => $spe["specializations"][0]["talents"],
+        ]);
     }
 }
