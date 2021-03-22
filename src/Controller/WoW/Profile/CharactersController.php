@@ -89,9 +89,10 @@ class CharactersController extends AbstractController
         $dungeon = $this->dungeonRepository->findDungeonLastExpansion(true);
 
         $spe = $this->warcraftApi->getCharacterSpecialization($realm, $username);
+        $traits = $this->warcraftApi->getPlayerCovenantsTraits($realm, $username);
         $spe = json_decode($spe, true);
         return $this->render('wow/show_character.html.twig', ['character' => $character, 'dungeons' => $dungeon,
-            'talents' => $spe["specializations"][0]["talents"],
+            'talents' => $spe["specializations"][0]["talents"], 'traits' => $traits
         ]);
     }
 }

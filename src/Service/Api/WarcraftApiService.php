@@ -101,4 +101,75 @@ class WarcraftApiService
             return $result->getContent();
 
     }
+
+    public function getCharacterProfile(string $realm, string $username, string $token = "")
+    {
+        if ($token == "")
+            $token = $this->blizzardApi->accessToken()->access_token;
+        $url = "https://eu.api.blizzard.com/profile/wow/character/".$realm.'/'.$username;
+        try {
+            $result = $this->client->request('GET', $url, [
+                'query' => ['access_token' => $token, 'namespace' => 'profile-eu', 'locale' => 'en_GB'],
+            ]);
+            return json_decode($result->getContent());
+        } catch (ClientExceptionInterface $e) {
+        } catch (RedirectionExceptionInterface $e) {
+        } catch (ServerExceptionInterface $e) {
+        } catch (TransportExceptionInterface $e) {
+        }
+    }
+
+    public function getPlayerCovenantsTraits(string $realm, string $username)
+    {
+        $token = $this->blizzardApi->accessToken()->access_token;
+        $characterData = $this->getCharacterProfile($realm, $username, $token);
+        $soulbindsUrl = $characterData->covenant_progress->soulbinds->href;
+
+        $result = $this->sendRequestByProfile($soulbindsUrl, $token);
+        //echo json_encode($result);
+        $spellId =[];
+        foreach ($result->soulbinds as $soulbind) {
+            if (isset($soulbind->is_active)) {
+
+                foreach ($soulbind->traits as $trait) {
+                    if (isset($trait->trait)) {
+                        $trait = $this->sendRequestByStatic($trait->trait->key->href, $token);
+                        $spellId[] = $trait->spell_tooltip->spell->id;
+                    }
+                }
+
+            }
+        }
+        return $spellId;
+    }
+
+    public function sendRequestByProfile($url, $token)
+    {
+        try {
+            $result = $this->client->request('GET', $url, [
+            'query' => ['access_token' => $token, 'namespace' => 'profile-eu', 'locale' => 'en_GB'],
+            ]);
+            return json_decode($result->getContent());
+        } catch (ClientExceptionInterface $e) {
+        } catch (RedirectionExceptionInterface $e) {
+        } catch (ServerExceptionInterface $e) {
+        } catch (TransportExceptionInterface $e) {
+        }
+        return null;
+    }
+
+    public function sendRequestByStatic($url, $token)
+    {
+        try {
+            $result = $this->client->request('GET', $url, [
+                'query' => ['access_token' => $token, 'namespace' => 'static-eu', 'locale' => 'en_GB'],
+            ]);
+            return json_decode($result->getContent());
+        } catch (ClientExceptionInterface $e) {
+        } catch (RedirectionExceptionInterface $e) {
+        } catch (ServerExceptionInterface $e) {
+        } catch (TransportExceptionInterface $e) {
+        }
+        return null;
+    }
 }
