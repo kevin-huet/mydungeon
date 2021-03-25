@@ -12,9 +12,7 @@
             <div class="card-stacked">
                 <div class="card-content">
                     <form method="post">
-                        {% if error %}
-                            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                        {% endif %}
+                            {% include 'alert/alert.html.twig' %}
 
                         {% if app.user %}
                             <div class="mb-3">

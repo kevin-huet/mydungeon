@@ -25,6 +25,8 @@ Encore
      */
     .addEntry('app', './assets/app.js')
     .addEntry('connectedUser', './assets/connectedUser.js')
+    .addEntry('alert', './assets/alert.js')
+
     //.addEntry('page2', './assets/page2.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.

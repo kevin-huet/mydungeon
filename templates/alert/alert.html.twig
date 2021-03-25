@@ -1,0 +1,44 @@
+{% for message in app.flashes('success') %}
+<div class="card-alert card green lighten-5">
+    <div class="card-content green-text">
+        {{ message }}
+
+    </div>
+    <button type="button" class="close green-text" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+    </button>
+</div>
+{% endfor %}
+
+{% for message in app.flashes('info') %}
+<div class="card-alert card light-blue lighten-5">
+    <div class="card-content light-blue-text">
+        {{ message }}
+    </div>
+    <button type="button" class="close blue-text" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+    </button>
+</div>
+{% endfor %}
+
+{% for message in app.flashes('warning') %}
+<div class="card-alert card orange lighten-5">
+    <div class="card-content orange-text">
+        {{ message }}
+    </div>
+    <button type="button" class="close orange-text" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+    </button>
+</div>
+{% endfor %}
+
+{% for message in app.flashes('danger') %}
+<div class="card-alert card red lighten-5">
+    <div class="card-content red-text">
+        {{ message }}
+    </div>
+    <button type="button" class="close red-text" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+    </button>
+</div>
+{% endfor %}

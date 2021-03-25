@@ -1,5 +1,7 @@
 
 import './styles/app.css';
+import './styles/alert.css';
+
 import $ from 'jquery';
 import Chart from 'chart.js';
 import {
