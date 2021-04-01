@@ -6,9 +6,11 @@ namespace App\Controller\WoW\Profile;
 
 use App\Entity\BlizzardUser;
 use App\Entity\User;
+use App\Repository\CharacterRepository;
 use App\Repository\DungeonDataRepository;
 use App\Service\Api\RaiderioApiService;
 use App\Service\Api\WarcraftApiService;
+use App\Service\WoW\CharacterService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -32,13 +34,23 @@ class CharactersController extends AbstractController
      * @var WarcraftApiService
      */
     private $warcraftApi;
+    /**
+     * @var CharacterRepository
+     */
+    private $characterRepository;
+    /**
+     * @var CharacterService
+     */
+    private $characterService;
 
     public function __construct(RaiderioApiService $raiderioApiService, DungeonDataRepository $dungeonRepository,
-        WarcraftApiService $warcraftApiService)
+        WarcraftApiService $warcraftApiService, CharacterRepository $characterRepository, CharacterService $characterService)
     {
         $this->raiderApi = $raiderioApiService;
         $this->dungeonRepository = $dungeonRepository;
         $this->warcraftApi = $warcraftApiService;
+        $this->characterRepository = $characterRepository;
+        $this->characterService = $characterService;
     }
 
     /**
@@ -75,6 +87,7 @@ class CharactersController extends AbstractController
         return 'white';
     }
 
+
     /**
      * @param string $realm
      * @param string $username
@@ -85,14 +98,19 @@ class CharactersController extends AbstractController
     {
         $scoreTier = $this->raiderApi->getScoreTiers();
         $character = $this->raiderApi->getCharacter($username, $realm, 'eu');
-        $character['scoreColor'] = $this->setColorByScore($character['mythic_plus_scores']['all'], $scoreTier);
+        if (isset($character['mythic_plus_scores']))
+            $character['scoreColor'] = $this->setColorByScore($character['mythic_plus_scores']['all'], $scoreTier);
         $dungeon = $this->dungeonRepository->findDungeonLastExpansion(true);
 
         $spe = $this->warcraftApi->getCharacterSpecialization($realm, $username);
-        $traits = $this->warcraftApi->getPlayerCovenantsTraits($realm, $username);
         $spe = json_decode($spe, true);
+
+        $character_entity = $this->characterRepository->findOneBy(array('name' => $character['name'], 'realm' => $character['realm']));
+        if (!$character_entity && $character) {
+            $this->characterService->createEmptyCharacter($character['realm'], $character['name']);
+        }
         return $this->render('wow/show_character.html.twig', ['character' => $character, 'dungeons' => $dungeon,
-            'talents' => $spe["specializations"][0]["talents"], 'traits' => $traits
+            'talents' => $spe["specializations"][0]["talents"],
         ]);
     }
 }

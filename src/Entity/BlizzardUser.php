@@ -4,6 +4,7 @@
 namespace App\Entity;
 
 
+use App\Entity\Review\Review;
 use App\Entity\WoW\DungeonGroup;
 use App\Entity\WoW\DungeonGroupRequest;
 use App\Entity\WoW\WarcraftCharacter;
@@ -49,11 +50,17 @@ class BlizzardUser
      */
     private $dungeonGroupRequests;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Review::class, mappedBy="author")
+     */
+    private $reviews;
+
     public function __construct()
     {
         $this->characters = new ArrayCollection();
         $this->dungeonGroup = new ArrayCollection();
         $this->dungeonGroupRequests = new ArrayCollection();
+        $this->reviews = new ArrayCollection();
     }
 
     /**
@@ -193,6 +200,36 @@ class BlizzardUser
             // set the owning side to null (unless already changed)
             if ($dungeonGroupRequest->getSender() === $this) {
                 $dungeonGroupRequest->setSender(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Review[]
+     */
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
+
+    public function addReview(Review $review): self
+    {
+        if (!$this->reviews->contains($review)) {
+            $this->reviews[] = $review;
+            $review->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReview(Review $review): self
+    {
+        if ($this->reviews->removeElement($review)) {
+            // set the owning side to null (unless already changed)
+            if ($review->getAuthor() === $this) {
+                $review->setAuthor(null);
             }
         }
 

@@ -124,8 +124,14 @@ class SyncAccountController extends AbstractController
                 return;
             $result = json_decode($result, true);
             foreach ($result['wow_accounts'][0]['characters'] as $character) {
-                if ($character['level'] >= 50 && !$this->checkIfCharacterExist($user, $character)) {
-                    $newCharacter = new WarcraftCharacter();
+                $newCharacter = new WarcraftCharacter();
+                if ($this->getExistentCharacter($character)) {
+                    $newCharacter = $this->getExistentCharacter($character);
+                    $newCharacter->setPlayableClass($character['playable_class']['id']);
+                    $newCharacter->setBlizzardUser($user);
+                    $user->addCharacter($newCharacter);
+                    $this->em->persist($newCharacter);
+                } elseif ($character['level'] >= 50 && !$this->checkIfCharacterExist($user, $character)) {
                     $newCharacter->setName($character['name']);
                     $newCharacter->setPlayableClass($character['playable_class']['id']);
                     $newCharacter->setRealm($character['realm']['slug']);
@@ -146,5 +152,12 @@ class SyncAccountController extends AbstractController
                 return true;
         }
         return false;
+    }
+
+    public function getExistentCharacter($characterResult)
+    {
+        $result = $this->characterRepo->findExistCharacter($characterResult['realm']['slug'], $characterResult['name']);
+
+        return count($result) > 0 ? $result[0] : null;
     }
 }

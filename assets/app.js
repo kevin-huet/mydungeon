@@ -33,4 +33,25 @@ $(document).ready(function() {
             console.log(jqXHR.responseText);
         });
     });
+
+    $('.raiderio').click(function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        $.ajax({
+
+            url: "https://www.google.com/",
+            crossDomain: true,
+            dataType: 'text/html',
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+            },
+            type: 'GET',
+
+        }).done(function (data) {
+            $('.modal-content').html(data);
+            $('#modal1').modal('open');
+        }).fail(function (jqXHR) {
+            console.log(jqXHR.responseText);
+        });
+    });
 });

@@ -5,6 +5,7 @@ namespace App\Entity\WoW;
 
 use App\Entity\BlizzardUser;
 use App\Entity\LinkCharacterGroup;
+use App\Entity\Review\Review;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -24,7 +25,7 @@ class WarcraftCharacter
 
     /**
      * @var integer
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $playableClass;
 
@@ -42,6 +43,7 @@ class WarcraftCharacter
 
     /**
      * @ORM\ManyToOne(targetEntity=BlizzardUser::class, inversedBy="characters")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $blizzardUser;
 
@@ -60,11 +62,17 @@ class WarcraftCharacter
      */
     private $requests;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Review::class, mappedBy="target")
+     */
+    private $reviews;
+
     public function __construct()
     {
         $this->dungeonGroups = new ArrayCollection();
         $this->linkCharacterGroups = new ArrayCollection();
         $this->requests = new ArrayCollection();
+        $this->reviews = new ArrayCollection();
     }
 
     /**
@@ -233,4 +241,47 @@ class WarcraftCharacter
         return $this;
     }
 
+    /**
+     * @return Collection|Review[]
+     */
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
+
+    public function addReview(Review $review): self
+    {
+        if (!$this->reviews->contains($review)) {
+            $this->reviews[] = $review;
+            $review->setTarget($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReview(Review $review): self
+    {
+        if ($this->reviews->removeElement($review)) {
+            // set the owning side to null (unless already changed)
+            if ($review->getTarget() === $this) {
+                $review->setTarget(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function reviewRatio() : array
+    {
+        $positive = 0;
+        $negative = 0;
+
+        /** @var Review $review */
+        foreach ($this->getReviews() as $review) {
+            ($review->getPositive()) ? $positive += $review->getReviewCategory()->getRatio()
+                : $negative +=  $review->getReviewCategory()->getRatio();
+        }
+
+        return ['positive' => $positive, 'negative' => $negative];
+    }
 }

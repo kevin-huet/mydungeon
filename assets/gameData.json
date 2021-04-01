@@ -1,0 +1,58 @@
+{
+  "class": [
+    {
+      "warrior": {
+        "role": ["dps", "tank"],
+        "color": "#C69B6D"
+      },
+      "mage": {
+        "role": ["dps"],
+        "color": "#3FC7EB"
+      },
+      "druid": {
+        "role": ["dps", "tank", "heal"],
+        "color": "#FF7C0A"
+      },
+      "paladin": {
+        "role": ["dps", "tank", "heal"],
+        "color": "#F48CBA"
+      },
+      "warlock": {
+        "role": ["dps"],
+        "color": "#8788EE"
+      },
+      "priest": {
+        "role": ["dps", "heal"],
+        "color": "#FFFFFF"
+      },
+      "monk": {
+        "role": ["dps", "tank", "heal"],
+        "color": "#00FF98"
+      },
+      "shaman": {
+        "role": ["dps", "heal"],
+        "color": "#0070DD"
+      },
+      "rogue": {
+        "role": ["dps"],
+        "color": "#FFF468"
+      },
+      "hunter": {
+        "role": ["dps"],
+        "color": "#AAD372"
+      },
+      "demon_hunter": {
+        "role": ["dps", "tank"],
+        "color": "#A330C9"
+      },
+      "death_knight": {
+        "role": ["dps", "tank"],
+        "color": "#C41E3A"
+      }
+    }
+  ],
+  "game_data": {
+    "max_level": 60,
+    "class_number": 12
+  }
+}

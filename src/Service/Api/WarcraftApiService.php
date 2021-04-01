@@ -172,4 +172,23 @@ class WarcraftApiService
         }
         return null;
     }
+
+    public function getKeystoneDetails($region, $realm, $username, $season, $size = 0)
+    {
+        if ($size == 0)
+            $size = 10;
+
+        $token = $this->blizzardApi->accessToken()->access_token;
+        $url = "https://eu.api.blizzard.com/profile/wow/character/".$realm."/".$username."/mythic-keystone-profile/season/".$season."?namespace=profile-eu&locale=en_GB";
+        try {
+            $result = $this->client->request('GET', $url, [
+                'query' => ['access_token' => $token, 'namespace' => 'profile-eu', 'locale' => 'en_GB'],
+            ]);
+            return json_decode($result->getContent());
+        } catch (ClientExceptionInterface $e) {
+        } catch (RedirectionExceptionInterface $e) {
+        } catch (ServerExceptionInterface $e) {
+        } catch (TransportExceptionInterface $e) {
+        }
+    }
 }

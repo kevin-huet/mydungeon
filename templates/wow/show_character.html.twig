@@ -9,6 +9,7 @@
                 </div>
                 <div class="card-stacked">
                     <div class="card-content white-text">
+                        <a class="btn raiderio" data-href="https://raider.io/mythic-plus-runs/season-sl-1/14445559-16-halls-of-atonement">test</a>
                         {{ character.name }}
                         {{ character.realm }}<br>
                         raiderIo score: <b style="color: {{ character.scoreColor }}">{{ character.mythic_plus_scores.all }}</b><br>
@@ -41,7 +42,7 @@
                             <a href="#" data-wowhead="item={{ item.item_id }}
                             &ilvl={{ item.item_level }}&ench=
                             {% if item.enchant is defined %}
-                            {{ item.enchant }}
+                                {{ item.enchant }}
                             {% endif %}
                             &gems={{ item.gems|join(':') }}
                             &item&bonus={{ item.bonuses|join(':') }}">
@@ -49,10 +50,7 @@
                         {% endfor %}
                     </div>
                     <div class="card-action">
-                        {% for item in traits %}
-                            <a href="#" data-wowhead="spell={{ trait }}">
-                            </a>
-                        {% endfor %}
+
                     </div>
                 </div>
             </div>
@@ -91,7 +89,7 @@
 
                             <tbody>
                             {% for run in character.mythic_plus_best_runs|sort %}
-                                {% if dungeons[loop.index - 1].name == run.dungeon %}
+                                {% if dungeons is not empty and dungeons[loop.index - 1].name == run.dungeon %}
                                 <tr class="dungeon-row" onclick="window.location='{{ run.url }}';">
                                     <td><img src="{{ dungeons[loop.index - 1].media }}" class="responsive-img" style="max-height: 38px"></td>
                                     <td>{{ run.short_name }}</td>

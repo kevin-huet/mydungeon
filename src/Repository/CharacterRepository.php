@@ -39,12 +39,12 @@ class CharacterRepository extends ServiceEntityRepository
     }
     */
 
-    public function findExistCharacter($username, $realm)
+    public function findExistCharacter($realm, $username)
     {
             return $this->createQueryBuilder('u')
-                ->andWhere('u.name = :name')
+                ->where('upper(u.name) = upper(:name)')
                 ->setParameter('name', $username)
-                ->andWhere('u.realm = :realm_')
+                ->andWhere('upper(u.realm) = upper(:realm_)')
                 ->setParameter('realm_', $realm)
                 ->getQuery()
                 ->getResult();

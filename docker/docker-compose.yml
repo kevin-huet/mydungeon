@@ -2,6 +2,8 @@ version: '2'
 services:
   php:
     build: ./php-fpm
+    env_file:
+      - ./../.env
     volumes:
       - ./../:/var/www/msmv
       - ./php-fpm/php.ini:/usr/local/etc/php/php.ini
@@ -17,10 +19,21 @@ services:
     depends_on:
       - php
   db:
-    image: mysql:5.7
+    image: postgres:10-alpine
     environment:
-      MYSQL_ROOT_PASSWORD: symf0ny
-      MYSQL_USER: symfony
-      MYSQL_PASSWORD: password
+      POSTGRES_DB: mydungeon
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: test
+
     ports:
-    - "3333:3306"
+    - "5432:5432"
+
+  mercure:
+    image: dunglas/mercure
+    ports:
+      - 3000:80
+    environment:
+      - JWT_KEY=symfonyBlogJwtToken
+      - PUBLISH_ALLOWED_ORIGINS=*
+      - CORS_ALLOWED_ORIGINS=http://localhost
+      - DEBUG=1
